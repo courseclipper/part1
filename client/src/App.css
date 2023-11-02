@@ -81,3 +81,27 @@ body {
 .blah .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
   height: 5px;
 }
+
+@media screen and (max-width: 768px){
+  .Main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #0bb980;
+    height: 67px;
+ 
+  }
+
+  .footer-main {
+    text-align: center;
+    display: flex;
+    gap: 80px;
+    
+   
+  }
+
+  .footer-p {
+    color: black;
+    font-size: 11px;
+  }
+}

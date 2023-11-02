@@ -109,7 +109,7 @@ const Comparison = () => {
                 </button>
               </form>
             </div>
-            <div
+            <div className="related-div"
               style={{
                 color: "black",
                 fontSize: "1.2rem",

@@ -263,7 +263,7 @@ function Navbar() {
             setIsDrawerOpen(true);
           }}
         >
-          <MenuIcon style={{ color: "#707070", fontSize: "3.5rem" }} />
+          <MenuIcon style={{ color: "#707070", fontSize: "3.5rem"}} className="menu-icon" />
         </Button>
       </div>
 

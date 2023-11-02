@@ -16,3 +16,15 @@
 .right-arrow {
     margin-left: 15px;
 }
+
+.image42{
+    width: 400px;
+}
+
+@media (max-width: 768px){
+    .image42 {
+        width: 300px;
+        margin-top: 40px;
+        
+    }
+}

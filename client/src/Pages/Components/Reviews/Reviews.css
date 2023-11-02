@@ -78,3 +78,9 @@
   font-size: 12px;
   color: #888;
 }
+
+@media (max-width: 768px){
+  .rev-topbar{
+    font-size: 1.6rem;
+  }
+}

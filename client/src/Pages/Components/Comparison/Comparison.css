@@ -134,3 +134,47 @@ form.example::after {
   inline-size: 270px;
   overflow-wrap: break-word;
 }
+
+@media (max-width: 768px){
+  .comp-main-cont{
+    padding-left: 1px;
+    height: 100%;
+  }
+  .example{
+    width: 340px;
+    
+    
+  }
+
+  .list-container{
+    padding-left: 20px;
+  }
+
+  .comp-right-cont{
+    left: 10px;
+    top: 360px;
+    height: 1px;
+    width: 100px;
+  }
+
+  .comp-text-cont1{
+    width: 100%;
+  }
+
+  .comp-text-cont1 h1{
+    font-size: 25px;
+    width: 200px;
+    margin-left: 0px;
+  }
+
+  .comp-text-cont1 p{
+    font-size: 13px;
+    width:200px ;
+    margin-left: 0px;
+  }
+
+  .related-div{
+    width: 300px;
+    padding-left: 10px;
+  }
+}

@@ -1,6 +1,6 @@
 .about-main {
     width: 80%;
-    height: 2000px;
+    
     background-color: #F5F7FE;
     margin: auto;
 }
@@ -18,6 +18,25 @@
     align-items: center;
 
 }
+
+.about-img-text2 {
+    /* background-color: rebeccapurple; */
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+}
+
+.about-img-text3 {
+    /* background-color: rebeccapurple; */
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+}
+
 .img-box {
     /* background-color: rgb(194, 165, 221); */
     /* border: 1px solid black; */
@@ -27,6 +46,7 @@
     transition: all ease 1s;
     border-radius: 93px 0px 68px
 }
+
 
 
 .text-box {
@@ -44,6 +64,10 @@
     /* border: 1px solid black; */
     text-align: center;
     background: #F5F7FE;
+}
+
+.about-text p{
+    font-size: 26px;
 }
 
 /* 
@@ -114,4 +138,77 @@ h2:hover::after {
 }
 .img-box:hover img {
     scale: 1.2;
+}
+
+@media (max-width: 768px){
+    .about-sub-div img {
+        width: 100%;
+        /* border: 1px solid black; */
+    
+    }
+    .about-text p {
+        /* background-color: chartreuse; */
+        /* border: 1px solid black; */
+        text-align:justify;
+        background: #F5F7FE;
+        font-size: 20px;
+        
+    }
+
+    .about-img-text {
+        /* background-color: rebeccapurple; */
+        /* border: 1px solid black; */
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+    }
+
+    .about-img-text2 {
+        /* background-color: rebeccapurple; */
+        /* border: 1px solid black; */
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+    }
+
+    .about-img-text3 {
+        /* background-color: rebeccapurple; */
+        /* border: 1px solid black; */
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .img-box{
+            margin-top: 500px;
+        }
+    
+    }
+    .img-box {
+        /* background-color: rgb(194, 165, 221); */
+        /* border: 1px solid black; */
+        width: 90%;
+        height: 90%;
+        margin-top: 100px;
+    }
+    
+    
+    .text-box p {
+        /* background-color: cadetblue; */
+        /* border: 1px solid black; */
+        width: 34%;
+        height: 60%;
+        font-size: 17px;
+        text-align: justify;
+        margin-left: 320px;
+    
+    
+    }
 }

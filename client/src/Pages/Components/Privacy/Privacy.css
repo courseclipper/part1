@@ -6,3 +6,16 @@
 .privacy-each {
     width: 80%;
 }
+
+@media (max-width: 768px){
+    .privacy-main{
+        width: 100%;
+        margin: auto;
+        padding: 40px;
+    }
+    .privacy-each {
+        width: 100%;
+        font-size: 16px;
+    }
+   
+}

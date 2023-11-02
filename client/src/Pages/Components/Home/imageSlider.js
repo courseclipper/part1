@@ -32,7 +32,7 @@ const ImageSlider = ({ slides }) => {
             key={index}
           >
             {index === current && (
-              <img src={slide.image} style={{height:"100%", width:"400px",borderRadius:"8px", boxShadow: "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"}} alt='travel image' className='image' />
+              <img src={slide.image} style={{height:"100%",borderRadius:"8px", boxShadow: "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"}} alt='travel image' className="image42" />
             )}
           </div>
         );

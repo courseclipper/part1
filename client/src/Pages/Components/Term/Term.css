@@ -1,3 +1,9 @@
 .term-each {
     width: 70%;
 }
+
+@media (max-width: 768px){
+    .term-each {
+        width: 100%;
+    }
+}
