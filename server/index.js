@@ -18,6 +18,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static(__dirname + '/client/build'));
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/client/build/index.html');
+});
+
 
 //Listening to Server : 3001
 app.listen(3001, console.log("Server running at port 3001"));

@@ -42,7 +42,7 @@ const Admin = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     if (localStorage.getItem("AdminCondition") === "true") {
-      Axios.get("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//reviews").then((response) => {
+      Axios.get("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/reviews").then((response) => {
         setReview(response.data);
       });
     } else {
@@ -53,7 +53,7 @@ const Admin = () => {
   const [id, setId] = useState();
   const handleDeleteClick = () => {
     handleCloseDeleteBox();
-    Axios.post("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//adminDelete", { Id: id })
+    Axios.post("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/adminDelete", { Id: id })
       .then((response) => {
         console.log(response);
       })
@@ -79,7 +79,7 @@ const Admin = () => {
   const updateSubmit = (data) => {
     data.id = a[0]._id;
     console.log(data);
-    Axios.post(`http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//updateLink`, data)
+    Axios.post(`http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/updateLink`, data)
       .then((response) => {
         console.log(response);
       })

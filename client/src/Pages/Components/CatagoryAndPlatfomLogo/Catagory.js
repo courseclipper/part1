@@ -44,7 +44,7 @@ function Catagory() {
   const OnDeleteCatHandler = async (event, cat) => {
     event.preventDefault();
     try {
-      const response = await axios.delete(`http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//category/delete/${cat.name}`);
+      const response = await axios.delete(`http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/category/delete/${cat.name}`);
       if (response.statusText === 'OK') {
         deleteCat(cat);
         window.location.reload();
@@ -69,7 +69,7 @@ function Catagory() {
         body: JSON.stringify(data)
       };
       console.log(requestOptions);
-      const response = await axios.get('http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//category', requestOptions);
+      const response = await axios.get('http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/category', requestOptions);
       const data_res = await response.json();
       console.log(data_res);
       if (response.ok) {
@@ -94,7 +94,7 @@ function Catagory() {
         url: platformUrl
       };
       console.log(data_platform);
-      const response = await axios.post('http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//platform', data_platform);
+      const response = await axios.post('http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/platform', data_platform);
       if (response.statusText == 'OK') {
         addplatform(data_platform.name, data_platform.url, response.data.Platform._id);
         handleCloseAddPlatformLogo();
@@ -109,7 +109,7 @@ function Catagory() {
   const PlatformDeleteHandler = async (e, name_plat) => {
     e.preventDefault();
     try {
-      const response_del = await axios.delete(`http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//platform/${name_plat}`);
+      const response_del = await axios.delete(`http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/platform/${name_plat}`);
       if (response_del.statusText == 'OK') {
         deleteplatform(name_plat);
         window.location.reload();
@@ -121,13 +121,13 @@ function Catagory() {
   }
 
   useEffect(() => {
-    axios.get("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//category").then((response) => {
+    axios.get("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/category").then((response) => {
       setCategory(response.data.Categories);
     }).catch((error) => {
       console.log(error);
     })
 
-    axios.get("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//platform").then((response) => {
+    axios.get("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/platform").then((response) => {
       console.log(response.data.Platforms);
       setPlatform(response.data.Platforms);
     }).catch((error) => {
