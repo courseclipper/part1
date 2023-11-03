@@ -9,6 +9,7 @@ const Review = require("./Model/Review.js");
 const Category = require("./Model/Category");
 const Platform = require("./Model/Platform");
 const urlMetadata = require('url-metadata');
+const path = require('path');
 //Connection with Database
 ConnectwithDB();
 
@@ -18,10 +19,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(__dirname + '/client/build'));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/client/build/index.html');
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 
