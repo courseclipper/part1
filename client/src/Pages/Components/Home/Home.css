@@ -201,7 +201,7 @@ input:focus {
 
 @media (max-width: 768px) {
   .home-top-bar{
-    width: 125%;
+    width: 100%;
 
   }
 
@@ -262,4 +262,15 @@ input:focus {
     width: 100vw;
   }
   
+}
+
+@media (max-width: 400px) and (min-width: 300px){
+  .companies{
+    width: 347px;
+  }
+
+  .companies img{
+    width: 190px;
+    height: 90px;
+  }
 }

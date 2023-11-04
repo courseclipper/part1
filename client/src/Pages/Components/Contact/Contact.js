@@ -11,7 +11,7 @@ const Contact = () => {
   const onSubmit = (data) => {
     console.log(data);
     data.condition = true;
-    Axios.post("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/contact", data).then((response) => {
+    Axios.post("http://localhost:3001/contact", data).then((response) => {
       alert(response.data.message);
     }).catch((error) => {
       console.log(error);

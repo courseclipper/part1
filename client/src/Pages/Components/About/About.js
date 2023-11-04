@@ -44,7 +44,7 @@ const About = () => {
 
         <div className="about-img-text2">
 
-        <div className="text-box">
+        <div className="text-box12">
                 <p>
                   Gone are the days of tirelessly scouring the internet for elusive course reviews or blindly
                   following recommendations. Our platform is your trusted companion, streamlining your
@@ -61,6 +61,20 @@ const About = () => {
                   alt=""
                 />
               </div>
+
+              <div className="text-box2">
+                <p>
+                  Gone are the days of tirelessly scouring the internet for elusive course reviews or blindly
+                  following recommendations. Our platform is your trusted companion, streamlining your
+                  decision-making process and saving you precious time and resources.
+                  CourseClipper is more than just a review platform; it's a sanctuary of trust and collaboration. We
+                  unite students and professionals to foster confidence and inspire synergy in the pursuit of
+                  educational excellence. Free and accessible to all, our foundation is built upon unwavering
+                  transparency.
+                </p>
+              </div>
+
+              
               
             
             
