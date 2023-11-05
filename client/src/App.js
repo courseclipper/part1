@@ -4,7 +4,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { gapi } from "gapi-script";
-import Contact from "./Pages/Components/Contact/Contact";
 import Blog from "./Pages/Components/Blog/Blog";
 import Review from "./Pages/Components/Reviews/Reviews";
 import Comparison from "./Pages/Components/Comparison/Comparison";
@@ -76,10 +75,6 @@ function App() {
     {
       path: "/",
       element: <Home />,
-    },
-    {
-      path: "/contact",
-      element: <Contact />,
     },
     {
       path: "/blog",

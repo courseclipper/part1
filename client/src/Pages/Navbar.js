@@ -111,10 +111,6 @@ function Navbar() {
       routeName: "/privacy",
     },
     {
-      route: "Contact Us",
-      routeName: "/contact",
-    },
-    {
       route: "Terms & Conditions",
       routeName: "/term",
     },
