@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 import { useForm, Controller } from "react-hook-form";
 import { Drawer, Box } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-
 import List from "@mui/material/List";
 import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
@@ -15,7 +14,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-
 import Dialog from "@mui/material/Dialog";
 import Rating from "@mui/material/Rating";
 import Axios from "axios";
@@ -33,13 +31,11 @@ function Navbar() {
   const [authenticated, setisAuthenticated] = useState(false);
   const [GoogleAuth, setGoogleAuth] = useState(false);
   const [GoogleId, setGoogleId] = useState('');
-
   const [Reviews, setReviews] = useState([]);
   const handleOpen = () => setDialogOpen(true);
   const handleClose = () => setDialogOpen(false);
   const handleOpenLogin = () => setLoginOpen(true);
   const handleCloseLogin = () => setLoginOpen(false);
-
   const data_res = JSON.parse(localStorage.getItem("User"));
   useEffect(() => {
     const data_res = JSON.parse(localStorage.getItem("User"));
@@ -48,7 +44,6 @@ function Navbar() {
       dispatch({ type: 'LOGIN', payload: data_res.user });
       if (data_res.user.googleId) {
         setGoogleAuth(true);
-
         setGoogleId(data_res.user.googleId);
       }
       else {
@@ -60,7 +55,6 @@ function Navbar() {
       setisAuthenticated(false);
     }
   }, [dispatch]);
-
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
@@ -75,9 +69,7 @@ function Navbar() {
   useEffect(() => {
     fetchCategory();
   }, []);
-
   const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
-
   const customSubmitFunction = (data) => {
     console.log(data);
     if (
