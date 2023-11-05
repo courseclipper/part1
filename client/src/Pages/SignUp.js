@@ -56,7 +56,7 @@ export default function SignUp() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
   };
-    const response = await (await fetch('http://http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com//signup',requestOptions)).json();
+    const response = await (await fetch('http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/signup',requestOptions)).json();
     if(response){
     console.log(response);
     navigate("/review");
