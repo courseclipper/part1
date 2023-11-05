@@ -12,22 +12,25 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.user-email{
+
+.user-email {
   border: 3px solid darkgray;
-padding: 7px;
-border-radius: 6px;
-margin-right: 3px;
+  padding: 7px;
+  border-radius: 6px;
+  margin-right: 3px;
 }
-.home-top-bar-section{
-  
+
+.home-top-bar-section {
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.menu-icon{
+.menu-icon {
   color: #707070;
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -56,7 +59,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:  #0bb980;
+  background-color: #0bb980;
   height: 67px;
 }
 
@@ -64,7 +67,7 @@ body {
   text-align: center;
   display: flex;
   gap: 30rem;
- 
+
 }
 
 .footer-p {
@@ -82,27 +85,28 @@ body {
     transform: rotate(360deg);
   }
 }
+
 .blah .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
   height: 5px;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .Main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  #0bb980;
+    background-color: #0bb980;
     height: 67px;
     width: 100%;
- 
+
   }
 
   .footer-main {
     text-align: center;
     display: flex;
     gap: 80px;
-    
-   
+
+
   }
 
   .footer-p {
@@ -110,19 +114,17 @@ body {
     font-size: 11px;
   }
 
-  .menu-icon{
-    
-  }
+  .menu-icon {}
 }
 
-@media (max-width: 400px) and (min-width: 320px){
+@media (max-width: 400px) and (min-width: 320px) {
   .Main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  #0bb980;
+    background-color: #0bb980;
     height: 67px;
     width: 100%;
- 
+
   }
 }
