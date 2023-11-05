@@ -139,22 +139,25 @@ form.example::after {
   .comp-main-cont{
     padding-left: 1px;
     height: 100%;
+    display: block;
   }
+
   .example{
     width: 340px;
-    
-    
   }
 
   .list-container{
     padding-left: 20px;
   }
 
+  .comp-left-cont,.comp-right-cont{
+    width: 100%;
+    position: relative;
+  }
   .comp-right-cont{
     left: 10px;
-    top: 360px;
-    height: 1px;
-    width: 100px;
+    /* top: 360px;
+    height: 1px; */
   }
 
   .comp-text-cont1{
