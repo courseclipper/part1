@@ -60,18 +60,22 @@ app.get("/reviews", async (req, res) => {
 
 app.get("/review-name", async (req, res) => {
     try {
-        // console.log(req.query.categoryName);
-        // if (req.query.categoryName && req.query.categoryName.trim() !== "") {
-        //     query.categoryName = new RegExp(req.query.categoryName, 'i');
-        // }
-        // console.log(query);
         let query = {};
-        if (req.query.catagoryName != '') {
-            query = { catagoryName: req.query.catagoryName };
+        if ((req.query.catagoryName != '')  ) {
+            query = {
+                '$or': [
+                  {
+                    'courseName': new RegExp('.*'+req.query.catagoryName+'*.')
+                  }, {
+                    'courseURL': new RegExp('.*'+req.query.catagoryName+'*.')
+                  }, {
+                    'courseDescription': new RegExp('.*'+req.query.catagoryName+'*.')
+                  }
+                ]
+              };
         }
-        console.log(query);
+        // console.log(query);
         const result = await Review.find(query).sort({ Rating: -1 });
-        // console.log(result);
         res.json(result);
     } catch (error) {
         console.error(error);
