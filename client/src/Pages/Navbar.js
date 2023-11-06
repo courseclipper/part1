@@ -233,7 +233,7 @@ function Navbar() {
         }}
       >
         <img src="cc.png" className="logo-main"
-        style={{ width: "50px" }}></img>
+        style={{ width: "74px", marginLeft:"17px" }}></img>
       </button>
 
       <div className="home-top-bar-section button-section" >
@@ -456,7 +456,7 @@ function Navbar() {
       >
         <Box
           className="login-dialog"
-          style={{ width: "350px", height: "300px" }}
+          style={{ width: "100%", height: "300px" }}
         >
           <form onSubmit={handleSubmitAdmin(customSubmitFunction)}>
             <div className="main-lgn">

@@ -110,6 +110,11 @@
     font-size: 21px;    
 }
 
+.text-box12 p {
+    text-align: end;
+    font-size: 21px;    
+}
+
 
 
 
@@ -170,7 +175,8 @@ h2:hover::after {
         /* border: 1px solid black; */
         text-align:justify;
         background: #F5F7FE;
-        font-size: 20px;
+        font-size: 19px;
+        line-height: 1.6em;
         
     }
 
@@ -240,6 +246,11 @@ h2:hover::after {
     }
 
     .text-box p{
+        text-align: left;
+        line-height: 1.6em;
+    }
+
+    .text-box2 p{
         text-align: left;
         line-height: 1.6em;
     }

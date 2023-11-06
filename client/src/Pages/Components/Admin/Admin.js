@@ -360,7 +360,7 @@ const Admin = () => {
                         id="course-name"
                         {...field}
                         style={{
-                          width: "325px",
+                          width: "318px",
                           height: "35px",
                           borderRadius: "5px",
                           border: "1px solid grey",

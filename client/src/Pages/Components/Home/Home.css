@@ -22,9 +22,10 @@ body {
   top: 0;
   z-index: 1000;
   background-color: #f5f7fe;
-  padding: 0rem 1rem 0rem 5rem;
+  padding: 0rem 1rem 0rem 12rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  height: 100px;
 }
 
 .logo-section {
@@ -34,12 +35,13 @@ body {
 }
 
 .home-top-bar-section.button-section>#navbar-rev {
-  width: 105px;
+  
   border: 3px solid gray;
   color: gray;
   border-radius: 10px;
   font-weight: bold;
   margin-left: 50px;
+
 }
 
 /* #0BB980 */
@@ -206,6 +208,8 @@ input:focus {
 @media (max-width: 768px) {
   .home-top-bar {
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   .logo-section {
@@ -216,7 +220,7 @@ input:focus {
   .home-top-bar-section {
     font-size: 14vw;
     width: 10%;
-    margin-left: 1px;
+    margin-left: 33px;
   }
 
   .button-section {
@@ -230,12 +234,14 @@ input:focus {
   }
 
   .dialog-box {
-    width: 100%;
-    padding: 10px;
+    width: 97%;
+    padding-right: 0px;
+    padding-left: 10px
   }
 
   .home-main-section {
     width: 100%;
+    padding: 0;
   }
 
   .top {
@@ -244,7 +250,8 @@ input:focus {
   }
 
   .left {
-    width: 100%;
+    padding-left: 38px;
+    width: 85%;
   }
 
   .tag2 {
@@ -265,6 +272,11 @@ input:focus {
     width: 100vw;
   }
 
+  .home-top-bar-section.button-section>#navbar-rev{
+    width: 90px;
+    font-size: 13px;
+  }
+
 }
 
 @media (max-width: 400px) and (min-width: 300px) {
@@ -275,5 +287,11 @@ input:focus {
   .companies img {
     width: 190px;
     height: 90px;
+  }
+
+  .dialog-box {
+    width: 90%;
+    padding-right: 0px;
+    padding-left: 10px
   }
 }

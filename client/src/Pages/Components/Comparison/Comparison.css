@@ -28,7 +28,7 @@ form.example input[type="text"] {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 75%;
+  width: 69%;
   background: #ffffff;
   border-radius: 23px;
   margin-right: 5px;
@@ -137,7 +137,7 @@ form.example::after {
 
 @media (max-width: 768px){
   .comp-main-cont{
-    padding-left: 1px;
+    padding-left: 0px;
     height: 100%;
     display: block;
   }
@@ -151,7 +151,7 @@ form.example::after {
   }
 
   .comp-left-cont,.comp-right-cont{
-    width: 100%;
+    width: 96%;
     position: relative;
   }
   .comp-right-cont{
