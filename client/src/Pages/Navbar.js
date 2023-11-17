@@ -58,7 +58,7 @@ function Navbar() {
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
-      const response = await Axios.get("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/category");
+      const response = await Axios.get("http://localhost:3001/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
     }
@@ -209,7 +209,7 @@ function Navbar() {
 
   const onSubmit = (data) => {
     const finalData = { ...data, Rating: value };
-    Axios.post("http://ec2-18-134-228-189.eu-west-2.compute.amazonaws.com/reviews", finalData)
+    Axios.post("http://localhost:3001/reviews", finalData)
       .then((response) => {
         setReviews((prev) => [finalData, ...prev]);
         window.location.reload(false);
