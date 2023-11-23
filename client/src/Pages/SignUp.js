@@ -56,7 +56,7 @@ export default function SignUp() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
   };
-    const response = await (await fetch('http://localhost:3001/signup',requestOptions)).json();
+    const response = await (await fetch('http://18.134.196.223/signup',requestOptions)).json();
     if(response){
     console.log(response);
     navigate("/review");

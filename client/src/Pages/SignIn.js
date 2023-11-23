@@ -59,7 +59,7 @@ export default function SignIn() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       };
-      const response = await fetch('http://localhost:3001/signin',requestOptions);
+      const response = await fetch('http://18.134.196.223/signin',requestOptions);
       const data_res = await response.json();
       if(response.ok){
         console.log(data_res);

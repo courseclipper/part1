@@ -42,7 +42,7 @@ const Admin = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     if (localStorage.getItem("AdminCondition") === "true") {
-      Axios.get("http://localhost:3001/reviews").then((response) => {
+      Axios.get("http://18.134.196.223/reviews").then((response) => {
         setReview(response.data);
       });
     } else {
@@ -53,7 +53,7 @@ const Admin = () => {
   const [id, setId] = useState();
   const handleDeleteClick = () => {
     handleCloseDeleteBox();
-    Axios.post("http://localhost:3001/adminDelete", { Id: id })
+    Axios.post("http://18.134.196.223/adminDelete", { Id: id })
       .then((response) => {
         console.log(response);
       })
@@ -79,7 +79,7 @@ const Admin = () => {
   const updateSubmit = (data) => {
     data.id = a[0]._id;
     console.log(data);
-    Axios.post(`http://localhost:3001/updateLink`, data)
+    Axios.post(`http://18.134.196.223/updateLink`, data)
       .then((response) => {
         console.log(response);
       })

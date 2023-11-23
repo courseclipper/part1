@@ -23,7 +23,7 @@ const Comparison = () => {
       let course_name = selectedCourse || searchKeyword;
       console.log(course_name);
       try {
-        const response = await Axios.get("http://localhost:3001/review-name", {
+        const response = await Axios.get("http://18.134.196.223/review-name", {
           params: {
             catagoryName: course_name,
           },
@@ -40,7 +40,7 @@ const Comparison = () => {
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
-      const response = await Axios.get("http://localhost:3001/category");
+      const response = await Axios.get("http://18.134.196.223/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
     }

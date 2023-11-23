@@ -23,9 +23,11 @@
     "web-vitals": "^2.1.4",
     "webpack": "^5.89.0"
   },
+  "homepage": ".",
+  "start_url": ".",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
