@@ -2,6 +2,7 @@
   "name": "course-clipper",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://18.134.196.223/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
