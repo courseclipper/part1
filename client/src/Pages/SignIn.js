@@ -69,8 +69,7 @@ export default function SignIn() {
         dispatch({type : 'LOGIN' , payload : data_res});
         setisLoading(false);
         navigate("/review");
-      }
-      else{
+      } else{
         alert("PLEASE PROVIDE CORRECT CREDENTIALS");
         setisLoading(true);
         setisError(true);
@@ -137,10 +136,6 @@ export default function SignIn() {
                 autoComplete="current-password"
                 onChange={(e)=> setPassword(e.target.value)}
               />
-              {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
               <Button
                 type="submit"
                 fullWidth
@@ -151,11 +146,6 @@ export default function SignIn() {
                 Sign In
               </Button>
               <Grid container>
-                {/* <Grid item xs>
-                  <Link href="#" style={{ color: "#0BB980" }} variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid> */}
                 <Grid item>
                   <Link href="#" style={{ color: "#0BB980" }} variant="body2" onClick={()=>navigate("/signup")}>
                     Don't have an account? Sign Up
@@ -164,7 +154,6 @@ export default function SignIn() {
               </Grid>
               <Grid style={{textAlign:"center"}}>
               <Login />
-              {/* <Logout /> */}
               </Grid>
             </Box>
           </Box>

@@ -28,19 +28,15 @@ function Copyright(props) {
 }
 
 // TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
 export default function SignUp() {
   const navigate = useNavigate();
-
-
   const [firstName , setFirstName] = React.useState('');
   const [lastName , setLastName] = React.useState('');
   const [email,setEmail] = React.useState('');
   const [password , setPassword] = React.useState('');
 
-  
   const handleSubmit = async (event) => {
     event.preventDefault();
     try{

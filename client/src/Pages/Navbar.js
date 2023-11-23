@@ -209,7 +209,7 @@ function Navbar() {
 
   const onSubmit = (data) => {
     const finalData = { ...data, Rating: value };
-    Axios.post("http://18.134.196.223/reviews", finalData)
+    Axios.post("http://localhost:3001/reviews", finalData)
       .then((response) => {
         setReviews((prev) => [finalData, ...prev]);
         window.location.reload(false);
