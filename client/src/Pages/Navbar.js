@@ -26,7 +26,7 @@ function Navbar() {
   const { dispatch, user } = useContext(AuthContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [dialoglOpen, setDialogOpen] = React.useState(false);
-  const [loginOpen, setLoginOpen] = React.useState(false);
+  // const [loginOpen, setLoginOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
   const [authenticated, setisAuthenticated] = useState(false);
   const [GoogleAuth, setGoogleAuth] = useState(false);
@@ -34,8 +34,8 @@ function Navbar() {
   const [Reviews, setReviews] = useState([]);
   const handleOpen = () => setDialogOpen(true);
   const handleClose = () => setDialogOpen(false);
-  const handleOpenLogin = () => setLoginOpen(true);
-  const handleCloseLogin = () => setLoginOpen(false);
+  // const handleOpenLogin = () => setLoginOpen(true);
+  // const handleCloseLogin = () => setLoginOpen(false);
   const data_res = JSON.parse(localStorage.getItem("User"));
   useEffect(() => {
     const data_res = JSON.parse(localStorage.getItem("User"));
@@ -58,7 +58,7 @@ function Navbar() {
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
-      const response = await Axios.get("http://18.134.196.223/category");
+      const response = await Axios.get("http://3001/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
     }
@@ -70,21 +70,7 @@ function Navbar() {
     fetchCategory();
   }, []);
   const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
-  const customSubmitFunction = (data) => {
-    console.log(data);
-    if (
-      data.username === "xtzt092@#14pqnz" &&
-      data.password === "478420478457"
-    ) {
-      localStorage.setItem("AdminCondition", "true");
-      navigate("/admin");
-    }
-  };
-  const LogOutHandler = () => {
-    localStorage.removeItem("User");
-    dispatch({ type: 'LOGOUT' });
-    navigate("/signin");
-  }
+ 
   const test = [
     {
       route: "Home",
@@ -115,6 +101,10 @@ function Navbar() {
       routeName: "/term",
     },
   ];
+
+  const handleOpenLogin = ()=>{
+    navigate('/adminLogin')
+  }
 
   const list = (anchor) => (
     <Box>
@@ -151,7 +141,7 @@ function Navbar() {
         </Button>
       </Box>
 
-      <Box style={{ marginTop: "10px", width: "230px" }}>
+      {/* <Box style={{ marginTop: "10px", width: "230px" }}>
         {!authenticated  && <Button
           style={{
             fontSize: "10px",
@@ -166,7 +156,7 @@ function Navbar() {
           Admin Login
         </Button>}
 
-      </Box>
+      </Box> */}
 
       {/* <Box style={{ marginTop: "10px", width: "230px" }}>
         {!authenticated && !GoogleAuth && <Button
@@ -448,7 +438,7 @@ function Navbar() {
       </Dialog>
 
       {/* login form dialog box */}
-      <Dialog
+      {/* <Dialog
         open={loginOpen}
         onClose={handleCloseLogin}
         aria-labelledby="modal-modal-title"
@@ -503,7 +493,7 @@ function Navbar() {
             </div>
           </form>
         </Box>
-      </Dialog>
+      </Dialog> */}
     </div>
   );
 }

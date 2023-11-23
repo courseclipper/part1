@@ -22,10 +22,11 @@ import { useState, useEffect } from "react";
 import { CatContextProvider } from "./context/CategoryContext";
 import { PlatformContextProvider } from "./context/PlatFormContext";
 import CategoryAdminAuth from "./Pages/Components/CategoryAdminAuth/CategoryAdminAuth";
+import AdminLogin from "./Pages/AdminLogin";
 function App() {
   const [Categories, setCategories] = useState([]);
   const [Platforms, setPlatforms] = useState([]);
-  const [isAdmin, setisAdmin] = useState(false);
+  // const [isAdmin, setisAdmin] = useState(false);
   const addCat = (cat) => {
     setCategories((prev) => [cat, ...prev]);
   }
@@ -55,8 +56,8 @@ function App() {
       setPlatforms(plats);
     }
 
-    const AdminCondition = JSON.parse(localStorage.getItem("AdminCondition"));
-    setisAdmin(AdminCondition);
+    // const AdminCondition = JSON.parse(localStorage.getItem("AdminCondition"));
+    // setisAdmin(AdminCondition);
     const ClientId = '458159501348-1cvbb6hb8hte66at0fqv831lascvm4m1.apps.googleusercontent.com';
     function start() {
       gapi.auth2.init({
@@ -113,15 +114,19 @@ function App() {
       element: <AuthLayout><SignIn /></AuthLayout>
     },
     {
+      path:'/adminLogin', 
+      element:<AuthLayout><AdminLogin/></AuthLayout>
+    },
+    {
       path: "/catagory",
-      element:
-        <CategoryAdminAuth components={
-          <CatContextProvider value={{ Categories, addCat, deleteCat }}>
-            <PlatformContextProvider value={{ Platforms, addplatform, deleteplatform }}>
-              <Catagory />
-            </PlatformContextProvider>
-          </CatContextProvider>
-        } isAdmin={isAdmin} />
+      element:<Catagory />
+        // <CategoryAdminAuth components={
+        //   <CatContextProvider value={{ Categories, addCat, deleteCat }}>
+        //     <PlatformContextProvider value={{ Platforms, addplatform, deleteplatform }}>
+              
+        //     </PlatformContextProvider>
+        //   </CatContextProvider>
+        // } isAdmin={isAdmin} />
 
       // <CatContextProvider value={{Categories , addCat , deleteCat}}>
       //   <PlatformContextProvider value={{Platforms , addplatform , deleteplatform}}>

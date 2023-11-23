@@ -10,7 +10,7 @@ const Reviews = () => {
     const [review, setReview] = useState([]);
     const fetchReviews = useCallback(async () => {
         try {
-            const response = await Axios.get("http://18.134.196.223/reviews");
+            const response = await Axios.get("http://3001/reviews");
             setReview(response.data);
         }
         catch (err) {
