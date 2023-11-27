@@ -53,7 +53,10 @@ export default function SignUp() {
 				body: JSON.stringify(userData),
 			};
 			const response = await (
-				await fetch('https://course-clipper.onrender.com/signup', requestOptions)
+				await fetch(
+					'https://course-clipper-backend.onrender.com/signup',
+					requestOptions
+				)
 			).json();
 			if (response) {
 				console.log(response);

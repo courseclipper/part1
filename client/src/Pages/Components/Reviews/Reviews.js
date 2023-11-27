@@ -11,7 +11,7 @@ const Reviews = () => {
 	const fetchReviews = useCallback(async () => {
 		try {
 			const response = await Axios.get(
-				'https://course-clipper.onrender.com/reviews'
+				'https://course-clipper-backend.onrender.com/reviews'
 			);
 			setReview(response.data);
 		} catch (err) {

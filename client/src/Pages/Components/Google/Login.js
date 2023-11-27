@@ -12,7 +12,10 @@ function Login() {
 	const onSuccess = (res) => {
 		console.log(res.profileObj);
 		const response = axios
-			.post('https://course-clipper.onrender.com/google/signin', res.profileObj)
+			.post(
+				'https://course-clipper-backend.onrender.com/google/signin',
+				res.profileObj
+			)
 			.then((res) => {
 				if (res.data) {
 					console.log('login_details', res.data);

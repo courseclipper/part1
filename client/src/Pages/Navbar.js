@@ -57,7 +57,7 @@ function Navbar() {
 	const fetchCategory = useCallback(async () => {
 		try {
 			const response = await Axios.get(
-				'https://course-clipper.onrender.com/category'
+				'https://course-clipper-backend.onrender.com/category'
 			);
 			console.log(response.data.Categories);
 			setCategory(response.data.Categories);
@@ -198,7 +198,7 @@ function Navbar() {
 
 	const onSubmit = (data) => {
 		const finalData = { ...data, Rating: value };
-		Axios.post('https://course-clipper.onrender.com/reviews', finalData)
+		Axios.post('https://course-clipper-backend.onrender.com/reviews', finalData)
 			.then((response) => {
 				setReviews((prev) => [finalData, ...prev]);
 				window.location.reload(false);

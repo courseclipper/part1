@@ -24,7 +24,7 @@ const Comparison = () => {
 			console.log(course_name);
 			try {
 				const response = await Axios.get(
-					'https://course-clipper.onrender.com/review-name',
+					'https://course-clipper-backend.onrender.com/review-name',
 					{
 						params: {
 							catagoryName: course_name,
@@ -44,7 +44,7 @@ const Comparison = () => {
 	const fetchCategory = useCallback(async () => {
 		try {
 			const response = await Axios.get(
-				'https://course-clipper.onrender.com/category'
+				'https://course-clipper-backend.onrender.com/category'
 			);
 			console.log(response.data.Categories);
 			setCategory(response.data.Categories);

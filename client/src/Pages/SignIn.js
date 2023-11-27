@@ -59,7 +59,7 @@ export default function SignIn() {
 				body: JSON.stringify(data),
 			};
 			const response = await fetch(
-				'https://course-clipper.onrender.com/signin',
+				'https://course-clipper-backend.onrender.com/signin',
 				requestOptions
 			);
 			const data_res = await response.json();
