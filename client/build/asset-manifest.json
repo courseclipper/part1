@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "./static/css/main.4a30413c.css",
+    "main.js": "./static/js/main.eb1ebdcd.js",
+    "static/js/787.fd6e549b.chunk.js": "./static/js/787.fd6e549b.chunk.js",
+    "static/media/about-us.png": "./static/media/about-us.ea28e77d9c2a7fb6ee86.png",
+    "static/media/code_academy.png": "./static/media/code_academy.2e3364915c9fbd7a618a.png",
+    "static/media/img1.png": "./static/media/img1.7f39e5a7af7dc25f79b8.png",
+    "static/media/alison.png": "./static/media/alison.1c840b1f028603456f80.png",
+    "static/media/pluralsight.png": "./static/media/pluralsight.2fdfb84adfc201169b0c.png",
+    "static/media/courseera.png": "./static/media/courseera.f6c0906cd3a2a1fe3d5c.png",
+    "static/media/img3.png": "./static/media/img3.6e9e562d33eaf0f0bf46.png",
+    "static/media/img2.png": "./static/media/img2.d02954b4998dfb8bbbe2.png",
+    "static/media/khan_academy.png": "./static/media/khan_academy.0ecb380790b4c031f491.png",
+    "static/media/sololearn.png": "./static/media/sololearn.42f0e2a0d2ea7eafe810.png",
+    "static/media/futurelearn.png": "./static/media/futurelearn.bd04cbf4cd56956ecfc8.png",
+    "static/media/treehouse.png": "./static/media/treehouse.8e86e18c7173f4671335.png",
+    "static/media/cloudguru.png": "./static/media/cloudguru.7e00b8361b77d05809f7.png",
+    "static/media/udacity.png": "./static/media/udacity.26d2f52b07d374e70552.png",
+    "static/media/masterclass.png": "./static/media/masterclass.e0283e5b4f00000cc0c6.png",
+    "static/media/skill_share.png": "./static/media/skill_share.91c0770b67da1a734f0b.png",
+    "index.html": "./index.html",
+    "main.4a30413c.css.map": "./static/css/main.4a30413c.css.map",
+    "main.eb1ebdcd.js.map": "./static/js/main.eb1ebdcd.js.map",
+    "787.fd6e549b.chunk.js.map": "./static/js/787.fd6e549b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a30413c.css",
+    "static/js/main.eb1ebdcd.js"
+  ]
+}
