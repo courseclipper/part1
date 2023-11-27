@@ -44,7 +44,7 @@ function Catagory() {
 		event.preventDefault();
 		try {
 			const response = await axios.delete(
-				`http://localhost:3001/category/delete/${cat.name}`
+				`https://course-clipper.onrender.com/category/delete/${cat.name}`
 			);
 			if (response.statusText === 'OK') {
 				deleteCat(cat);
@@ -70,7 +70,7 @@ function Catagory() {
 			};
 			console.log(requestOptions);
 			const response = await axios.get(
-				'http://localhost:3001/category',
+				'https://course-clipper.onrender.com/category',
 				requestOptions
 			);
 			const data_res = await response.json();
@@ -97,7 +97,7 @@ function Catagory() {
 			};
 			console.log(data_platform);
 			const response = await axios.post(
-				'http://localhost:3001/platform',
+				'https://course-clipper.onrender.com/platform',
 				data_platform
 			);
 			if (response.statusText == 'OK') {
@@ -118,7 +118,7 @@ function Catagory() {
 		e.preventDefault();
 		try {
 			const response_del = await axios.delete(
-				`http://localhost:3001/platform/${name_plat}`
+				`https://course-clipper.onrender.com/platform/${name_plat}`
 			);
 			if (response_del.statusText == 'OK') {
 				deleteplatform(name_plat);
@@ -131,7 +131,7 @@ function Catagory() {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:3001/category')
+			.get('https://course-clipper.onrender.com/category')
 			.then((response) => {
 				setCategory(response.data.Categories);
 			})
@@ -140,7 +140,7 @@ function Catagory() {
 			});
 
 		axios
-			.get('http://localhost:3001/platform')
+			.get('https://course-clipper.onrender.com/platform')
 			.then((response) => {
 				console.log(response.data.Platforms);
 				setPlatform(response.data.Platforms);
