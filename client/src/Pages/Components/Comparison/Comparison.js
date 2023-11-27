@@ -23,7 +23,7 @@ const Comparison = () => {
       let course_name = selectedCourse || searchKeyword;
       console.log(course_name);
       try {
-        const response = await Axios.get("http://16.171.35.7/review-name", {
+        const response = await Axios.get("https://course-clipper.onrender.com/review-name", {
           params: {
             catagoryName: course_name,
           },
@@ -40,7 +40,7 @@ const Comparison = () => {
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
-      const response = await Axios.get("http://16.171.35.7/category");
+      const response = await Axios.get("https://course-clipper.onrender.com/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
     }

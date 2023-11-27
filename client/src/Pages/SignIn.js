@@ -59,7 +59,7 @@ export default function SignIn() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       };
-      const response = await fetch('http://16.171.35.7/signin',requestOptions);
+      const response = await fetch('https://course-clipper.onrender.com/signin',requestOptions);
       const data_res = await response.json();
       if(response.ok){
         console.log(data_res);
