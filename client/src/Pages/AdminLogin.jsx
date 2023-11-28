@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 
 function AdminLogin() {
   const navigate = useNavigate();
-  const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
+  // const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
     const customSubmitFunction = (data) => {
         if (
           data.username === "xtzt092@#14pqnz" &&
@@ -22,13 +22,14 @@ function AdminLogin() {
     return (
         <>
         <Navbar/>
-        <div className="form-container" onSubmit={handleSubmitAdmin(customSubmitFunction)}>
-          <Form layout='vertical'  className='register-form'>
+        {/* onSubmit={} */}
+        <div className="form-container" >
+          <Form layout='vertical'  className='register-form' onFinish={customSubmitFunction}>
             <h3 className='text-center'>Login</h3>
-            <FormItem label='email' name='email'>
-              <Input type='email' required />
+            <FormItem label='email' name='username'>
+              <Input type='text' required />
             </FormItem>
-            <FormItem label='Password' name='Password'>
+            <FormItem label='Password' name='password'>
               <Input type='password' required />
             </FormItem>
             <button className='btn btn-primary' type='submit'>Register</button>
