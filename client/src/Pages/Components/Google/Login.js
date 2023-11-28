@@ -10,7 +10,7 @@ function Login() {
     const {dispatch} = useContext(AuthContext);
   const onSuccess = (res)=>{
     console.log(res.profileObj);
-    const response = axios.post("http://16.171.35.7/google/signin" , res.profileObj).then((res)=>{
+    const response = axios.post("/google/signin" , res.profileObj).then((res)=>{
       if(res.data){
         console.log('login_details',res.data);
         // alert("YOUR GMAIL LOGIN PASSWORD IS YOUR EMAIL");

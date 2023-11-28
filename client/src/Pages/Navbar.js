@@ -58,7 +58,7 @@ function Navbar() {
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
-      const response = await Axios.get("http://16.171.35.7/category");
+      const response = await Axios.get("/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
     }
@@ -199,7 +199,7 @@ function Navbar() {
 
   const onSubmit = (data) => {
     const finalData = { ...data, Rating: value };
-    Axios.post("http://16.171.35.7/reviews", finalData)
+    Axios.post("/reviews", finalData)
       .then((response) => {
         setReviews((prev) => [finalData, ...prev]);
         window.location.reload(false);
