@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useCallback, useState } from "react";
 import "../CatagoryAndPlatfomLogo/Catagory.css";
-import Axios from 'axios';
+import Axios from "axios";
 import Button from "@mui/material/Button";
 import { Divider } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
@@ -11,11 +11,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import { useCategory } from "../../../context/CategoryContext";
 import { usePlatform } from "../../../context/PlatFormContext";
-import Navbar from "../../Navbar";
+import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from "react-router";
 
 function Catagory() {
-
   const [isAddCatagoryOpen, setIsAddCatagoryOpen] = useState(false);
   const handleOpenAddCatagory = () => setIsAddCatagoryOpen(true);
   const handleCloseAddCatagory = () => setIsAddCatagoryOpen(false);
@@ -38,38 +37,37 @@ function Catagory() {
   const [platform, setPlatform] = useState([]);
   const { addplatform, deleteplatform, Platforms } = usePlatform();
 
-  const [platformName, setplatformName] = useState('');
-  const [platformUrl, setplatformUrl] = useState('');
+  const [platformName, setplatformName] = useState("");
+  const [platformUrl, setplatformUrl] = useState("");
 
   const OnDeleteCatHandler = async (event, cat) => {
     event.preventDefault();
     try {
       const response = await axios.delete(`/category/delete/${cat.name}`);
-      if (response.statusText === 'OK') {
+      if (response.statusText === "OK") {
         deleteCat(cat);
         window.location.reload();
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
   const navReview = () => {
     navigate("/admin");
-  }
+  };
   const AddCategoryHandler = async (e) => {
     e.preventDefault();
     try {
       const data = {
-        category: category
+        category: category,
       };
       const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       };
       console.log(requestOptions);
-      const response = await axios.get('/category', requestOptions);
+      const response = await axios.get("/category", requestOptions);
       const data_res = await response.json();
       console.log(data_res);
       if (response.ok) {
@@ -80,64 +78,71 @@ function Catagory() {
         console.log(2);
         console.log("CANT SENT CATEGORY");
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   const PlatformAddHandler = async (e) => {
     e.preventDefault();
     try {
       const data_platform = {
         name: platformName,
-        url: platformUrl
+        url: platformUrl,
       };
       console.log(data_platform);
-      const response = await axios.post('/platform', data_platform);
-      if (response.statusText == 'OK') {
-        addplatform(data_platform.name, data_platform.url, response.data.Platform._id);
+      const response = await axios.post("/platform", data_platform);
+      if (response.statusText == "OK") {
+        addplatform(
+          data_platform.name,
+          data_platform.url,
+          response.data.Platform._id
+        );
         handleCloseAddPlatformLogo();
         window.location.reload();
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   const PlatformDeleteHandler = async (e, name_plat) => {
     e.preventDefault();
     try {
       const response_del = await axios.delete(`/platform/${name_plat}`);
-      if (response_del.statusText == 'OK') {
+      if (response_del.statusText == "OK") {
         deleteplatform(name_plat);
         window.location.reload();
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
-    axios.get("/category").then((response) => {
-      setCategory(response.data.Categories);
-    }).catch((error) => {
-      console.log(error);
-    })
+    axios
+      .get("/category")
+      .then((response) => {
+        setCategory(response.data.Categories);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    axios.get("/platform").then((response) => {
-      console.log(response.data.Platforms);
-      setPlatform(response.data.Platforms);
-    }).catch((error) => {
-      console.log(error);
-    })
+    axios
+      .get("/platform")
+      .then((response) => {
+        console.log(response.data.Platforms);
+        setPlatform(response.data.Platforms);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const handleCloseCategory = (event) => {
     event.preventDefault();
-  }
+  };
 
   return (
     <>
@@ -146,10 +151,7 @@ function Catagory() {
         <div className="cata-logo">
           <div className="catagory">
             <div className="cata-btn">
-              <Button
-                onClick={handleOpenAddCatagory}
-                variant="contained"
-              >
+              <Button onClick={handleOpenAddCatagory} variant="contained">
                 Add Category
               </Button>
             </div>
@@ -174,13 +176,13 @@ function Catagory() {
                             fontSize: "1.35rem",
                             borderRadius: "5px",
                             marginLeft: "10px",
-                            verticalAlign: "bottom"
+                            verticalAlign: "bottom",
                           }}
                         />
                       </div>
                       <Divider style={{ marginTop: "5px" }}></Divider>
                     </div>
-                  )
+                  );
                 })}
               </ul>
             </div>
@@ -200,13 +202,10 @@ function Catagory() {
                   Add Platform Logo
                 </Button>
               </div>
-            </div><div className="col-6">
+            </div>
+            <div className="col-6">
               <div className="cata-btn">
-                
-                <Button
-                  onClick={navReview}
-                  variant="contained"
-                >
+                <Button onClick={navReview} variant="contained">
                   Edit Review
                 </Button>
               </div>
@@ -214,13 +213,9 @@ function Catagory() {
             <Divider style={{ marginTop: "5px" }}></Divider>
 
             <div className="cata-list">
-
               {platform?.map((plat, id) => (
                 <div className="log-div" key={id}>
-                  <img
-                    src={plat.url}
-                    alt="platform-logo"
-                  />
+                  <img src={plat.url} alt="platform-logo" />
                   <DeleteIcon
                     onClick={(e) => {
                       PlatformDeleteHandler(e, plat.name);
@@ -237,7 +232,6 @@ function Catagory() {
                   <span>{plat.name}</span>
                 </div>
               ))}
-
             </div>
           </div>
         </div>
@@ -371,7 +365,6 @@ function Catagory() {
               }}
             >
               Enter Platform logo's Url
-
               <input
                 type="text"
                 placeholder="Enter platform name... ex-udemy,pluralsight..."
@@ -384,8 +377,9 @@ function Catagory() {
                   border: "1px solid rgb(184, 180, 180)",
                   marginTop: "20px",
                 }}
-                onChange={(e) => { setplatformName(e.target.value) }}
-
+                onChange={(e) => {
+                  setplatformName(e.target.value);
+                }}
               />
               <input
                 type="text"
@@ -399,10 +393,10 @@ function Catagory() {
                   border: "1px solid rgb(184, 180, 180)",
                   marginTop: "20px",
                 }}
-
-                onChange={(e) => { setplatformUrl(e.target.value) }}
+                onChange={(e) => {
+                  setplatformUrl(e.target.value);
+                }}
               />
-
             </Typography>
             <div style={{ textAlign: "center" }}>
               <Button
@@ -428,7 +422,6 @@ function Catagory() {
           </div>
         </Box>
       </Dialog>
-
 
       {/* delete logo */}
       <Dialog

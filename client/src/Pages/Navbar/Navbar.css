@@ -1,0 +1,37 @@
+.landing_navbar_link_main {
+  display: flex;
+  justify-content: center;
+  width: 73%;
+  cursor: pointer;
+}
+
+.navbar_logo_main {
+  width: 80px !important;
+}
+.landing_navbar_review {
+  width: 27%;
+}
+
+.landing_navbar_navLink {
+  color: #040612;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0 0.8rem;
+}
+
+.landing_review_add_review_main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.landing_navbar_add_review {
+  font-size: 17px;
+  color: white;
+  background-color: #0bb980;
+}
+
+.active_navlink {
+  color: #0bb980;
+  border-bottom: 4px solid #0bb980;
+}

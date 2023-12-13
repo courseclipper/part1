@@ -17,9 +17,12 @@ import MailIcon from "@mui/icons-material/Mail";
 import Dialog from "@mui/material/Dialog";
 import Rating from "@mui/material/Rating";
 import Axios from "axios";
-import { AuthContext } from "../context/authContext";
+import { AuthContext } from "../../context/authContext";
 import Google from "@mui/icons-material/Google";
-import Logout from "./Components/Google/Logout";
+import Logout from "../Components/Google/Logout";
+import { Menu } from "antd";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -30,8 +33,10 @@ function Navbar() {
   const [value, setValue] = React.useState(0);
   const [authenticated, setisAuthenticated] = useState(false);
   const [GoogleAuth, setGoogleAuth] = useState(false);
-  const [GoogleId, setGoogleId] = useState('');
+  const [GoogleId, setGoogleId] = useState("");
   const [Reviews, setReviews] = useState([]);
+  const [currentPath, setCurrentPath] = useState(null);
+
   const handleOpen = () => setDialogOpen(true);
   const handleClose = () => setDialogOpen(false);
   // const handleOpenLogin = () => setLoginOpen(true);
@@ -41,17 +46,15 @@ function Navbar() {
     const data_res = JSON.parse(localStorage.getItem("User"));
     console.log(data_res);
     if (data_res) {
-      dispatch({ type: 'LOGIN', payload: data_res.user });
+      dispatch({ type: "LOGIN", payload: data_res.user });
       if (data_res.user.googleId) {
         setGoogleAuth(true);
         setGoogleId(data_res.user.googleId);
-      }
-      else {
+      } else {
         setisAuthenticated(true);
       }
       console.log(user);
-    }
-    else {
+    } else {
       setisAuthenticated(false);
     }
   }, [dispatch]);
@@ -61,16 +64,19 @@ function Navbar() {
       const response = await Axios.get("/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
   }, []);
   useEffect(() => {
     fetchCategory();
+    // const currentPath = window.location.pathname;
+    // console.log(currentPath);
+    // setCurrentPath(currentPath);
   }, []);
+
   const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
- 
+
   const test = [
     {
       route: "Home",
@@ -102,9 +108,9 @@ function Navbar() {
     },
   ];
 
-  const handleOpenLogin = ()=>{
-    navigate('/adminLogin')
-  }
+  const handleOpenLogin = () => {
+    navigate("/adminLogin");
+  };
 
   const list = (anchor) => (
     <Box>
@@ -129,7 +135,7 @@ function Navbar() {
       <Divider />
 
       <Box style={{ marginTop: "10px", width: "230px" }}>
-         <Button
+        <Button
           style={{
             fontSize: "17px",
             color: "white",
@@ -210,40 +216,95 @@ function Navbar() {
       });
   };
 
+  const handleActiveNavlink = (newPath) => {
+    setCurrentPath(newPath);
+  };
+
+  useEffect(() => {
+    if (currentPath !== null) {
+      navigate(currentPath);
+    }
+  }, [currentPath]);
 
   return (
-
     <div className="home-top-bar">
-
       <button
-        className="home-top-bar-section logo-section"
+        className="home-top-bar-section logo-section navbar_logo_main"
         style={{ background: "none", border: "none" }}
         onClick={() => {
           navigate("/");
         }}
       >
-        <img src="cc.png" className="logo-main"
-        style={{ width: "74px", marginLeft:"17px" }}></img>
+        <img
+          src="cc.png"
+          alt="logo"
+          className="logo-main"
+          style={{ width: "74px" }}
+        ></img>
       </button>
 
-      <div className="home-top-bar-section button-section" >
-        {user && <span class="user-email" >{user?.email}</span>}
-        <Button
-          id="navbar-rev"
-          variant="outlined"
-          onClick={() => {
-            navigate("/review");
-          }}
-        >
-          REVIEW
-        </Button>
-        <Button
-          onClick={() => {
-            setIsDrawerOpen(true);
-          }}
-        >
-          <MenuIcon style={{fontSize: "3.5rem"}} className="menu-icon" />
-        </Button>
+      <div className="home-top-bar-section button-section">
+        {/* {user && <span class="user-email">{user?.email}</span>} */}
+
+        <div className="landing_navbar_link_main">
+          <div
+            onClick={() => handleActiveNavlink("/")}
+            className={`landing_navbar_navLink${
+              currentPath === "/" ? " active_navlink" : ""
+            }`}
+          >
+            Home
+          </div>
+          <div
+            onClick={() => handleActiveNavlink("/comparison")}
+            className={`landing_navbar_navLink${
+              currentPath === "/comparison" ? " active_navlink" : ""
+            }`}
+          >
+            Compare Course
+          </div>
+          <div
+            onClick={() => handleActiveNavlink("/blog")}
+            className={`landing_navbar_navLink${
+              currentPath === "/blog" ? " active_navlink" : ""
+            }`}
+          >
+            Blogs
+          </div>
+        </div>
+        <div className="landing_navbar_review">
+          <div className="landing_review_add_review_main">
+            <Button
+              variant="outlined"
+              onClick={() => {
+                navigate("/review");
+              }}
+              className="navbar_review_btn"
+            >
+              REVIEW
+            </Button>
+            <Button
+              style={{
+                fontSize: "17px",
+                color: "white",
+                backgroundColor: "#0BB980",
+              }}
+              onClick={handleOpen}
+              className="landing_navbar_add_review"
+            >
+              Add Reviews <AddCircleIcon />
+            </Button>
+          </div>
+
+          {/* 
+          <Button
+            onClick={() => {
+              setIsDrawerOpen(true);
+            }}
+          >
+            <MenuIcon style={{ fontSize: "3.5rem" }} className="menu-icon" />
+          </Button> */}
+        </div>
       </div>
 
       {/* drawer */}
@@ -336,7 +397,7 @@ function Navbar() {
                     control={control}
                     defaultValue=""
                     render={({ field }) => (
-                      <input 
+                      <input
                         {...field}
                         type="email"
                         id="email"
@@ -366,12 +427,16 @@ function Navbar() {
                           height: "35px",
                           borderRadius: "5px",
                           border: "1px solid grey",
-                          fontSize: "15px"
+                          fontSize: "15px",
                         }}
                         {...register("catagoryName")}
                       >
                         {category.map((cat, id) => {
-                          return (<option value={cat.name} key={id}>{cat.name}</option>);
+                          return (
+                            <option value={cat.name} key={id}>
+                              {cat.name}
+                            </option>
+                          );
                         })}
                       </select>
                     )}

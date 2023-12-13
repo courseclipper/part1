@@ -12,10 +12,10 @@ import Sololearn from "../Assets/logo/sololearn.png";
 import Treehouse from "../Assets/logo/treehouse.png";
 import Udacity from "../Assets/logo/udacity.png";
 import Pluralsight from "../Assets/logo/pluralsight.png";
-
-import Navbar from "../../Navbar";
+import Navbar from "../../Navbar/Navbar";
 import ImageSlider from "./imageSlider";
 import { SliderData } from "./sliderData";
+import Marquee from "react-fast-marquee";
 
 function Home() {
   const [value, setValue] = React.useState(2);
@@ -25,101 +25,72 @@ function Home() {
       <Navbar />
 
       <div className="home-main-section">
-        <div className="top">
-          <div className="left">
-            <div className="tag">UK'S #1 COURSE REVIEWS PLATFORM</div>
-            <div className="tag2">
-              FIND THE RIGHT <br />
-              COURSE FOR YOUR <br /> GROWTH.
+        <div className="right_course_main">
+          <div className="top">
+            <div className="left">
+              <div className="tag find_course_heading">
+                UK'S #1 COURSE REVIEWS PLATFORM
+              </div>
+              <div className="tag2 right_course_heading_">
+                FIND THE RIGHT <br />
+                COURSE FOR YOUR <br /> GROWTH.
+              </div>
+              <div className="numbers find_course_heading trust_heading">
+                Trusted by 5Cr+ Students | 4 Lakh Institution
+              </div>
             </div>
-            <div className="numbers">
-              Trusted by 5Cr+ Students | 4 Lakh Institution
+            <div className="right">
+              <ImageSlider slides={SliderData} />
             </div>
-          </div>
-          <div className="right">
-            <ImageSlider slides={SliderData} />
           </div>
         </div>
 
-        <div className="bottom">
-          <h4 style={{ textAlign: "center", color: " #0bb980" }}>
+        <div className="bottom supported_client_main">
+          <p
+            style={{ textAlign: "center", color: " #0bb980" }}
+            className="landing_supported_heading"
+          >
             Our Supported Platform
-          </h4>
+          </p>
           <div className="companies">
-            <div>
-              <img
-                src={Alison}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={CodeAcademy}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={CourseEra}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={Cloudguru}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={FutureLearn}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={KhanAcademy}
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="companies">
-            <div>
-              <img
-                src={Masterclass}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={Skillshare}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={Sololearn}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={Treehouse}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={Udacity}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={Pluralsight}
-                alt=""
-              />
-            </div>
+            <Marquee speed="50" autoFill="true">
+              <div>
+                <img src={Alison} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={CodeAcademy} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={CourseEra} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={Cloudguru} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={FutureLearn} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={KhanAcademy} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={Masterclass} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={Skillshare} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={Sololearn} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={Treehouse} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={Udacity} alt="" className="support_client" />
+              </div>
+              <div>
+                <img src={Pluralsight} alt="" className="support_client" />
+              </div>
+            </Marquee>
           </div>
         </div>
       </div>

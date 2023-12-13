@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Navbar from "../Pages/Navbar";
+import Navbar from "../Pages/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import Login from "./Components/Google/Login";
 
@@ -32,36 +32,34 @@ const defaultTheme = createTheme();
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const [firstName , setFirstName] = React.useState('');
-  const [lastName , setLastName] = React.useState('');
-  const [email,setEmail] = React.useState('');
-  const [password , setPassword] = React.useState('');
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try{
-    const userData = {
-      firstName : firstName,
-      lastName : lastName,
-      email : email,
-      password : password
-    };
-    console.log(userData);
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userData)
-  };
-    const response = await (await fetch('/signup',requestOptions)).json();
-    if(response){
-    console.log(response);
-    navigate("/review");
-    }
-    else{
-    console.log("Please Login");  
-    }
-    }
-    catch(err){
+    try {
+      const userData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      };
+      console.log(userData);
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      };
+      const response = await (await fetch("/signup", requestOptions)).json();
+      if (response) {
+        console.log(response);
+        navigate("/review");
+      } else {
+        console.log("Please Login");
+      }
+    } catch (err) {
       console.log(err);
     }
   };
@@ -104,7 +102,7 @@ export default function SignUp() {
                     label="First Name"
                     autoFocus
                     value={firstName}
-                    onChange={(e)=> setFirstName(e.target.value)}
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -116,7 +114,7 @@ export default function SignUp() {
                     name="lastName"
                     autoComplete="family-name"
                     value={lastName}
-                    onChange={(e)=> setLastName(e.target.value)}
+                    onChange={(e) => setLastName(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -128,7 +126,7 @@ export default function SignUp() {
                     name="email"
                     autoComplete="email"
                     value={email}
-                    onChange={(e)=> setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -141,7 +139,7 @@ export default function SignUp() {
                     id="password"
                     autoComplete="new-password"
                     value={password}
-                    onChange={(e)=> setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </Grid>
               </Grid>
@@ -156,12 +154,17 @@ export default function SignUp() {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="#" style={{ color: "#0BB980" }} variant="body2" onClick={()=> navigate("/signin")}>
+                  <Link
+                    href="#"
+                    style={{ color: "#0BB980" }}
+                    variant="body2"
+                    onClick={() => navigate("/signin")}
+                  >
                     Already have an account? Sign in
                   </Link>
                 </Grid>
                 <Grid item>
-                <Login />
+                  <Login />
                 </Grid>
               </Grid>
             </Box>

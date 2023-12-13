@@ -6,7 +6,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Rating from "@mui/material/Rating";
-import Navbar from "../../Navbar";
+import Navbar from "../../Navbar/Navbar";
 
 const style = {
   width: "100%",
@@ -43,8 +43,7 @@ const Comparison = () => {
       const response = await Axios.get("/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
   }, []);
@@ -109,7 +108,8 @@ const Comparison = () => {
                 </button>
               </form>
             </div>
-            <div className="related-div"
+            <div
+              className="related-div"
               style={{
                 color: "black",
                 fontSize: "1.2rem",
@@ -127,15 +127,16 @@ const Comparison = () => {
                     <>
                       <ListItem
                         className="list-itm-g56"
-                        button key={id}
+                        button
+                        key={id}
                         onClick={() => handleCourseClick(cat.name)}
                       >
                         <ListItemText primary={cat.name} />
                       </ListItem>
                       <Divider />
-                    </>);
+                    </>
+                  );
                 })}
-
               </List>
             </div>
           </div>
@@ -147,7 +148,7 @@ const Comparison = () => {
             <p>Compare the best course</p>
           </div>
           <div className="comp-reviews-cont">
-              {/* <div className="each-reviews" key={`${index}-${review.courseName}`}>
+            {/* <div className="each-reviews" key={`${index}-${review.courseName}`}>
                 <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
                 <div className="cust-reviews232">
                   <div className="cust-rev-course">{review.courseName}</div>
@@ -162,16 +163,20 @@ const Comparison = () => {
               <div
                 className="rev-content"
                 onClick={() =>
-                (window.location.href = review.AffiliatedLink
-                  ? review.AffiliatedLink
-                  : "#")
+                  (window.location.href = review.AffiliatedLink
+                    ? review.AffiliatedLink
+                    : "#")
                 }
                 style={{ width: "100%", display: "flex", paddingTop: "20px" }}
                 key={`${index}-${review.courseName}`}
               >
                 <div style={{ minWidth: "74px", height: "100px" }}>
                   <img
-                    src={review.Logo ? review.Logo : 'https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og'}
+                    src={
+                      review.Logo
+                        ? review.Logo
+                        : "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og"
+                    }
                     alt=""
                     style={{ width: "100%", height: "100%" }}
                   />

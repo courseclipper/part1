@@ -1,6 +1,6 @@
-import React , {useContext, useState,useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,11 +14,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Navbar from "../Pages/Navbar";
+import Navbar from "../Pages/Navbar/Navbar";
 import GoogleIcon from "@mui/icons-material/Google";
 import { AuthContext } from "../context/authContext";
 import Login from "./Components/Google/Login";
-import {gapi} from 'gapi-script';
+import { gapi } from "gapi-script";
 import Google from "@mui/icons-material/Google";
 import Logout from "./Components/Google/Logout";
 // import { useAuthContext } from "../context/useAuthContext";
@@ -38,51 +38,47 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 export default function SignIn() {
+  const [loading, setisLoading] = useState(false);
+  const [Error, setisError] = useState(false);
 
-  const [loading , setisLoading] = useState(false);
-  const [Error , setisError] = useState(false);
-  
-  const {dispatch} = useContext(AuthContext);
-  const [Email , setEmail] = useState('');
-  const [Password , setPassword] = useState('');
+  const { dispatch } = useContext(AuthContext);
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const data = {
-        email : Email,
-        password : Password,
-        googleId : ""
+        email: Email,
+        password: Password,
+        googleId: "",
       };
       const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       };
-      const response = await fetch('/signin',requestOptions);
+      const response = await fetch("/signin", requestOptions);
       const data_res = await response.json();
-      if(response.ok){
+      if (response.ok) {
         console.log(data_res);
-        localStorage.setItem("User",JSON.stringify(data_res));
-        setEmail('');
-        setPassword('');
-        dispatch({type : 'LOGIN' , payload : data_res});
+        localStorage.setItem("User", JSON.stringify(data_res));
+        setEmail("");
+        setPassword("");
+        dispatch({ type: "LOGIN", payload: data_res });
         setisLoading(false);
         navigate("/review");
-      } else{
+      } else {
         alert("PLEASE PROVIDE CORRECT CREDENTIALS");
         setisLoading(true);
         setisError(true);
-        setEmail('');
-        setPassword('');
+        setEmail("");
+        setPassword("");
         console.log("NOT AUTHENTICATED");
       }
-
-    }
-    catch(err){
+    } catch (err) {
       console.log(err);
     }
-
   };
 
   return (
@@ -122,7 +118,7 @@ export default function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-                onChange={(e)=> setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -134,7 +130,7 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={(e)=> setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <Button
                 type="submit"
@@ -147,13 +143,18 @@ export default function SignIn() {
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link href="#" style={{ color: "#0BB980" }} variant="body2" onClick={()=>navigate("/signup")}>
+                  <Link
+                    href="#"
+                    style={{ color: "#0BB980" }}
+                    variant="body2"
+                    onClick={() => navigate("/signup")}
+                  >
                     Don't have an account? Sign Up
                   </Link>
                 </Grid>
               </Grid>
-              <Grid style={{textAlign:"center"}}>
-              <Login />
+              <Grid style={{ textAlign: "center" }}>
+                <Login />
               </Grid>
             </Box>
           </Box>

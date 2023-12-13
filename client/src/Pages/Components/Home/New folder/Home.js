@@ -3,15 +3,13 @@ import "../Home/Home.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Rating from "@mui/material/Rating";
 
-import Navbar from "../../Navbar";
+import Navbar from "../../../Navbar/Navbar";
 
 function Home() {
-
   const [value, setValue] = React.useState(2);
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-
       <Navbar />
 
       <div className="home-main-section">
@@ -35,7 +33,12 @@ function Home() {
 
             <div className="reviews-stats">
               <div className="reviews-stars">
-                <Rating name="read-only" value={value} readOnly style={{ color: "green" }} />
+                <Rating
+                  name="read-only"
+                  value={value}
+                  readOnly
+                  style={{ color: "green" }}
+                />
               </div>
               <div className="reviews-rat">4.7</div>{" "}
               <span> &nbsp; | &nbsp; </span>
@@ -54,7 +57,12 @@ function Home() {
                   <AccountCircleIcon />
                 </span>
 
-                <Rating name="read-only" value={3} readOnly style={{ color: "green" }} />
+                <Rating
+                  name="read-only"
+                  value={3}
+                  readOnly
+                  style={{ color: "green" }}
+                />
               </div>
 
               <div className="reviews-text">
@@ -70,7 +78,12 @@ function Home() {
 
             <div className="reviews-stats">
               <div className="reviews-stars">
-                <Rating name="read-only" value={value} readOnly style={{ color: "green" }} />
+                <Rating
+                  name="read-only"
+                  value={value}
+                  readOnly
+                  style={{ color: "green" }}
+                />
               </div>
               <div className="reviews-rat">4.7</div>{" "}
               <span> &nbsp; | &nbsp; </span>
@@ -89,7 +102,12 @@ function Home() {
                   <AccountCircleIcon />
                 </span>
 
-                <Rating name="read-only" value={3} readOnly style={{ color: "green" }} />
+                <Rating
+                  name="read-only"
+                  value={3}
+                  readOnly
+                  style={{ color: "green" }}
+                />
               </div>
 
               <div className="reviews-text">
@@ -105,7 +123,12 @@ function Home() {
 
             <div className="reviews-stats">
               <div className="reviews-stars">
-                <Rating name="read-only" value={value} readOnly style={{ color: "green" }} />
+                <Rating
+                  name="read-only"
+                  value={value}
+                  readOnly
+                  style={{ color: "green" }}
+                />
               </div>
               <div className="reviews-rat">4.7</div>{" "}
               <span> &nbsp; | &nbsp; </span>
@@ -124,7 +147,12 @@ function Home() {
                   <AccountCircleIcon />
                 </span>
 
-                <Rating name="read-only" value={3} readOnly style={{ color: "green" }} />
+                <Rating
+                  name="read-only"
+                  value={3}
+                  readOnly
+                  style={{ color: "green" }}
+                />
               </div>
 
               <div className="reviews-text">
@@ -134,7 +162,6 @@ function Home() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
