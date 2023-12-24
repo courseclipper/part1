@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "./static/css/main.4a30413c.css",
-    "main.js": "./static/js/main.9d3709ef.js",
+    "main.css": "./static/css/main.d01b7b86.css",
+    "main.js": "./static/js/main.137ae7fe.js",
     "static/js/787.fd6e549b.chunk.js": "./static/js/787.fd6e549b.chunk.js",
+    "static/media/header_background.png": "./static/media/header_background.31537585589f74d7f1ec.png",
     "static/media/about-us.png": "./static/media/about-us.ea28e77d9c2a7fb6ee86.png",
     "static/media/code_academy.png": "./static/media/code_academy.2e3364915c9fbd7a618a.png",
     "static/media/img1.png": "./static/media/img1.7f39e5a7af7dc25f79b8.png",
@@ -20,12 +21,12 @@
     "static/media/masterclass.png": "./static/media/masterclass.e0283e5b4f00000cc0c6.png",
     "static/media/skill_share.png": "./static/media/skill_share.91c0770b67da1a734f0b.png",
     "index.html": "./index.html",
-    "main.4a30413c.css.map": "./static/css/main.4a30413c.css.map",
-    "main.9d3709ef.js.map": "./static/js/main.9d3709ef.js.map",
+    "main.d01b7b86.css.map": "./static/css/main.d01b7b86.css.map",
+    "main.137ae7fe.js.map": "./static/js/main.137ae7fe.js.map",
     "787.fd6e549b.chunk.js.map": "./static/js/787.fd6e549b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a30413c.css",
-    "static/js/main.9d3709ef.js"
+    "static/css/main.d01b7b86.css",
+    "static/js/main.137ae7fe.js"
   ]
 }
