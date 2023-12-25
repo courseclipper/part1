@@ -79,14 +79,6 @@ body {
   /* margin: 100px 0px; */
 }
 
-.footer_about_link {
-  text-decoration: none;
-  color: white;
-  margin-right: 2rem;
-  font-size: 15px;
-  font-weight: 600;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

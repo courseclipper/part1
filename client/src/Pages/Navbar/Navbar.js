@@ -23,6 +23,7 @@ import Logout from "../Components/Google/Logout";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import api from "../../api";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ function Navbar() {
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
-      const response = await Axios.get("/category");
+      const response = await api.get("/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
     } catch (err) {
@@ -203,9 +204,14 @@ function Navbar() {
 
   const { control, handleSubmit, register } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    const url = data?.courseURL;
+    const hostname = url ? new URL(url).hostname : null;
+    const imageUrl = hostname ? `https://${hostname}` : null;
+    data.Logo = imageUrl;
     const finalData = { ...data, Rating: value };
-    Axios.post("/reviews", finalData)
+    api
+      .post("/reviews", finalData)
       .then((response) => {
         setReviews((prev) => [finalData, ...prev]);
         window.location.reload(false);
@@ -238,12 +244,11 @@ function Navbar() {
         <img
           src="cc.png"
           alt="logo"
-          className="logo-main"
-          style={{ width: "74px" }}
+          className="logo-main landing_navbar_logo"
         ></img>
       </button>
 
-      <div className="home-top-bar-section button-section">
+      <div className="home-top-bar-section button-section landing_navbar_link_btn_main">
         {/* {user && <span class="user-email">{user?.email}</span>} */}
 
         <div className="landing_navbar_link_main">

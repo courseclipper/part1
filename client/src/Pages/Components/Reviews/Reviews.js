@@ -4,14 +4,16 @@ import { useNavigate } from "react-router";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Navbar/Navbar";
 import Axios from "axios";
+import api from "../../../api";
 
 const Reviews = () => {
   const navigate = useNavigate();
   const [review, setReview] = useState([]);
   const fetchReviews = useCallback(async () => {
     try {
-      const response = await Axios.get("/reviews");
+      const response = await api.get("/reviews");
       setReview(response.data);
+      debugger;
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -68,11 +70,7 @@ const Reviews = () => {
               >
                 <div className="rev-icon-star">
                   <img
-                    src={
-                      item?.platm[0]?.url
-                        ? item?.platm[0]?.url
-                        : "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og"
-                    }
+                    src={`https://logo.clearbit.com/${item?.Logo}`}
                     alt=""
                     style={{ width: "65px", height: "65px" }}
                   />

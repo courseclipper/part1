@@ -64,10 +64,10 @@ body {
   /* top: 0; */
   /* z-index: 1000; */
   background-color: white;
-  padding: 0.5rem 9rem !important;
+  padding: 0.5rem 6rem !important;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  height: 100px;
+  height: 57px;
 }
 
 .logo-section {
@@ -81,6 +81,7 @@ body {
   color: gray !important;
   border-radius: 10px !important;
   font-weight: bold !important;
+  margin-right: 1rem !important;
 }
 
 /* #0BB980 */

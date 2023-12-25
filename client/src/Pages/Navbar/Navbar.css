@@ -31,7 +31,18 @@
   background-color: #0bb980;
 }
 
-.active_navlink {
+/* .active_navlink {
   color: #0bb980;
   border-bottom: 4px solid #0bb980;
+} */
+
+.landing_navbar_link_btn_main {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.landing_navbar_logo {
+  width: 55px;
+  height: 55px;
 }

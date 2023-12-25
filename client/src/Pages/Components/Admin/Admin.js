@@ -119,7 +119,7 @@ const Admin = () => {
   };
   const navCategory = () => {
     navigate("/Catagory");
-  }
+  };
 
   return (
     <>
@@ -148,7 +148,7 @@ const Admin = () => {
 
         <div style={{ display: "flex" }}>
           <div className="rev-admin-div">
-            {filteredReviews.map((item,id) => {
+            {filteredReviews.map((item, id) => {
               return (
                 <div className="rev-content-ad" key={id}>
                   <div className="rev-icon-star">
@@ -219,7 +219,6 @@ const Admin = () => {
               );
             })}
           </div>
-
         </div>
       </div>
 
@@ -499,8 +498,6 @@ const Admin = () => {
           </div>
         </Box>
       </Dialog>
-
-
     </>
   );
 };
