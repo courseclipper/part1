@@ -36,6 +36,7 @@
   font-weight: 650 !important;
   font-size: 18px !important;
   cursor: pointer;
+  display: flex;
 }
 
 .footer_link_main {

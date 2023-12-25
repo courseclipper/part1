@@ -8,7 +8,8 @@ function Footer() {
       <div className="footer-top">
         {/* <div className="footer-left"> */}
         <p className="footer_heading">
-          Simplifying data management, <br /> revolutionizing insights.
+          Review Hub: Where Opinions Matter, <br />
+          and Insights Shine.
         </p>
         {/* </div> */}
         <div className="footer-right">
@@ -19,7 +20,10 @@ function Footer() {
               //   navigate("/signup");
               // }}
             >
-              Add Review <IoIosArrowForward style={{ marginRight: "0.3rem" }} />
+              Review{" "}
+              <IoIosArrowForward
+                style={{ marginRight: "0.3rem", marginTop: "0.2rem" }}
+              />
             </div>
           </a>
         </div>

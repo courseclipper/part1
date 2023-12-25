@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useCallback, useState } from "react";
 import "../CatagoryAndPlatfomLogo/Catagory.css";
-import Axios from "axios";
 import Button from "@mui/material/Button";
 import { Divider } from "@mui/material";
 import Dialog from "@mui/material/Dialog";

@@ -3,7 +3,6 @@ import "../Reviews/Reviews.css";
 import { useNavigate } from "react-router";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Navbar/Navbar";
-import Axios from "axios";
 import api from "../../../api";
 
 const Reviews = () => {

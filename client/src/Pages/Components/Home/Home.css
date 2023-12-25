@@ -63,7 +63,7 @@ body {
   /* position: sticky; */
   /* top: 0; */
   /* z-index: 1000; */
-  background-color: white;
+  background-color: #327e8c;
   padding: 0.5rem 6rem !important;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -77,11 +77,12 @@ body {
 }
 
 .navbar_review_btn {
-  border: 3px solid gray !important;
-  color: gray !important;
+  border: 3px solid white !important;
+  /* color: gray !important; */
   border-radius: 10px !important;
   font-weight: bold !important;
   margin-right: 1rem !important;
+  color: white !important;
 }
 
 /* #0BB980 */

@@ -53,7 +53,7 @@ function Home() {
             Our Supported Platform
           </p>
           <div className="companies">
-            {/* <Marquee speed="50" autoFill="true">
+            <Marquee speed="50" autoFill="true">
               <div>
                 <img src={Alison} alt="" className="support_client" />
               </div>
@@ -90,7 +90,7 @@ function Home() {
               <div>
                 <img src={Pluralsight} alt="" className="support_client" />
               </div>
-            </Marquee> */}
+            </Marquee>
           </div>
         </div>
       </div>

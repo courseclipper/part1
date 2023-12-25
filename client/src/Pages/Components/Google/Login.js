@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/authContext";
-import axios from "axios";
 import api from "../../../api";
 
 const ClientId =

@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import "../Admin/Admin.css";
 import { useState } from "react";
-import Axios from "axios";
-
 import Button from "@mui/material/Button";
 import { Divider } from "@mui/material";
 
@@ -18,6 +16,7 @@ import Typography from "@mui/material/Typography";
 import { useForm, Controller } from "react-hook-form";
 
 import { useNavigate } from "react-router";
+import api from "../../../api";
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -42,7 +41,7 @@ const Admin = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     if (localStorage.getItem("AdminCondition") === "true") {
-      Axios.get("http://18.134.196.223/reviews").then((response) => {
+      api.get("/reviews").then((response) => {
         setReview(response.data);
       });
     } else {
@@ -53,7 +52,8 @@ const Admin = () => {
   const [id, setId] = useState();
   const handleDeleteClick = () => {
     handleCloseDeleteBox();
-    Axios.post("http://18.134.196.223/adminDelete", { Id: id })
+    api
+      .post("/adminDelete", { Id: id })
       .then((response) => {
         console.log(response);
       })
@@ -79,7 +79,8 @@ const Admin = () => {
   const updateSubmit = (data) => {
     data.id = a[0]._id;
     console.log(data);
-    Axios.post(`http://18.134.196.223/updateLink`, data)
+    api
+      .post(`/updateLink`, data)
       .then((response) => {
         console.log(response);
       })

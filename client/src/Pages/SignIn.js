@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -58,7 +57,10 @@ export default function SignIn() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       };
-      const response = await fetch("/signin", requestOptions);
+      const response = await fetch(
+        "https://course-clipper-api-ea3d88f279db.herokuapp.com/signin",
+        requestOptions
+      );
       const data_res = await response.json();
       if (response.ok) {
         console.log(data_res);

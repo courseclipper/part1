@@ -16,7 +16,6 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Dialog from "@mui/material/Dialog";
 import Rating from "@mui/material/Rating";
-import Axios from "axios";
 import { AuthContext } from "../../context/authContext";
 import Google from "@mui/icons-material/Google";
 import Logout from "../Components/Google/Logout";

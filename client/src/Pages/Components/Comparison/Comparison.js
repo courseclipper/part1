@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Axios from "axios";
 import "../Comparison/Comparison.css";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";

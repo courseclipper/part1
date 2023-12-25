@@ -13,7 +13,7 @@
 }
 
 .landing_navbar_navLink {
-  color: #040612;
+  color: white;
   font-size: 20px;
   font-weight: 500;
   text-decoration: none;
@@ -29,6 +29,7 @@
   font-size: 17px;
   color: white;
   background-color: #0bb980;
+  border-radius: 8px !important;
 }
 
 /* .active_navlink {
