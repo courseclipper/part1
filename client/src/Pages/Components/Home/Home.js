@@ -15,7 +15,7 @@ import Pluralsight from "../Assets/logo/pluralsight.png";
 import Navbar from "../../Navbar/Navbar";
 import ImageSlider from "./imageSlider";
 import { SliderData } from "./sliderData";
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 
 function Home() {
   const [value, setValue] = React.useState(2);
@@ -53,44 +53,48 @@ function Home() {
             Our Supported Platform
           </p>
           <div className="companies">
-            <Marquee speed="50" autoFill="true">
-              <div>
-                <img src={Alison} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={CodeAcademy} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={CourseEra} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={Cloudguru} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={FutureLearn} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={KhanAcademy} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={Masterclass} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={Skillshare} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={Sololearn} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={Treehouse} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={Udacity} alt="" className="support_client" />
-              </div>
-              <div>
-                <img src={Pluralsight} alt="" className="support_client" />
-              </div>
-            </Marquee>
+            {/* <Marquee speed="50" autoFill="true"> */}
+            <div>
+              <img src={Alison} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={CodeAcademy} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={CourseEra} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={Cloudguru} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={FutureLearn} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={KhanAcademy} alt="" className="support_client" />
+            </div>
+            {/* </Marquee> */}
+          </div>
+          <div className="companies">
+            {/* <Marquee speed="50" autoFill="true"> */}
+            <div>
+              <img src={Masterclass} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={Skillshare} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={Sololearn} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={Treehouse} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={Udacity} alt="" className="support_client" />
+            </div>
+            <div>
+              <img src={Pluralsight} alt="" className="support_client" />
+            </div>
+            {/* </Marquee> */}
           </div>
         </div>
       </div>
