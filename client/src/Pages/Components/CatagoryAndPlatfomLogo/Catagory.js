@@ -8,11 +8,11 @@ import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import DeleteIcon from "@mui/icons-material/Delete";
-import axios from "axios";
 import { useCategory } from "../../../context/CategoryContext";
 import { usePlatform } from "../../../context/PlatFormContext";
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from "react-router";
+import api from "../../../api/index";
 
 function Catagory() {
   const [isAddCatagoryOpen, setIsAddCatagoryOpen] = useState(false);
@@ -43,7 +43,7 @@ function Catagory() {
   const OnDeleteCatHandler = async (event, cat) => {
     event.preventDefault();
     try {
-      const response = await axios.delete(`/category/delete/${cat.name}`);
+      const response = await api.delete(`/category/delete/${cat.name}`);
       if (response.statusText === "OK") {
         deleteCat(cat);
         window.location.reload();
@@ -67,7 +67,7 @@ function Catagory() {
         body: JSON.stringify(data),
       };
       console.log(requestOptions);
-      const response = await axios.get("/category", requestOptions);
+      const response = await api.get("/category", requestOptions);
       const data_res = await response.json();
       console.log(data_res);
       if (response.ok) {
@@ -91,7 +91,7 @@ function Catagory() {
         url: platformUrl,
       };
       console.log(data_platform);
-      const response = await axios.post("/platform", data_platform);
+      const response = await api.post("/platform", data_platform);
       if (response.statusText == "OK") {
         addplatform(
           data_platform.name,
@@ -109,7 +109,7 @@ function Catagory() {
   const PlatformDeleteHandler = async (e, name_plat) => {
     e.preventDefault();
     try {
-      const response_del = await axios.delete(`/platform/${name_plat}`);
+      const response_del = await api.delete(`/platform/${name_plat}`);
       if (response_del.statusText == "OK") {
         deleteplatform(name_plat);
         window.location.reload();
@@ -120,7 +120,7 @@ function Catagory() {
   };
 
   useEffect(() => {
-    axios
+    api
       .get("/category")
       .then((response) => {
         setCategory(response.data.Categories);
@@ -129,7 +129,7 @@ function Catagory() {
         console.log(error);
       });
 
-    axios
+    api
       .get("/platform")
       .then((response) => {
         console.log(response.data.Platforms);

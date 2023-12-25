@@ -1,0 +1,63 @@
+.responsive-footer {
+  margin: 1rem;
+  padding: 1rem;
+  color: #ffffff;
+  border-radius: 16px;
+  background-image: url("../../images/LandingPageImage/footer_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.footer-left {
+  margin-right: 1rem;
+}
+
+.footer-right button {
+  background-color: #11f1a5;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+}
+
+.get_started_btn {
+  background: #11f1a5 !important;
+  border-color: #11f1a5 !important;
+  border-radius: 8px !important;
+  padding: 12px 20px !important;
+  color: #040612 !important;
+  font-weight: 650 !important;
+  font-size: 18px !important;
+  cursor: pointer;
+}
+
+.footer_link_main {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer_about_link {
+  color: #748b91;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+.add_review_btn_main {
+  text-decoration: none;
+}
+
+.footer_heading {
+  margin: 0 !important;
+  font-size: 38px;
+  font-weight: 600;
+}

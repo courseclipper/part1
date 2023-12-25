@@ -91,8 +91,8 @@ app.post("/reviews", async (req, res) => {
   const d = a.replace("https://", "").replace("http://", "");
   var d1 = d.split(".");
   req.body.platformName = d1[1];
-  req.body.Logo =
-    "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og";
+  // req.body.Logo =
+  //   "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og";
   console.log(req.body);
   const review = new Review(req.body);
   review.save();

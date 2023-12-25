@@ -20,7 +20,7 @@ import { CatContextProvider } from "./context/CategoryContext";
 import { PlatformContextProvider } from "./context/PlatFormContext";
 import CategoryAdminAuth from "./Pages/Components/CategoryAdminAuth/CategoryAdminAuth";
 import AdminLogin from "./Pages/AdminLogin";
-import Footer from "./Pages/Footer";
+import Footer from "./Pages/Footer/Footer";
 
 function App() {
   const [Categories, setCategories] = useState([]);

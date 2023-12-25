@@ -7,6 +7,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Navbar/Navbar";
+import api from "../../../api/index";
 
 const style = {
   width: "100%",
@@ -23,7 +24,7 @@ const Comparison = () => {
       let course_name = selectedCourse || searchKeyword;
       console.log(course_name);
       try {
-        const response = await Axios.get("/review-name", {
+        const response = await api.get("/review-name", {
           params: {
             catagoryName: course_name,
           },
@@ -40,7 +41,7 @@ const Comparison = () => {
   const [category, setCategory] = useState([]);
   const fetchCategory = useCallback(async () => {
     try {
-      const response = await Axios.get("/category");
+      const response = await api.get("/category");
       console.log(response.data.Categories);
       setCategory(response.data.Categories);
     } catch (err) {
