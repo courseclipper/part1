@@ -54,46 +54,22 @@ function Home() {
           </p>
           <div className="companies">
             {/* <Marquee speed="50" autoFill="true"> */}
-            <div>
-              <img src={Alison} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={CodeAcademy} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={CourseEra} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={Cloudguru} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={FutureLearn} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={KhanAcademy} alt="" className="support_client" />
-            </div>
+            <img src={Alison} alt="" className="support_client" />
+            <img src={CodeAcademy} alt="" className="support_client" />
+            <img src={CourseEra} alt="" className="support_client" />
+            <img src={Cloudguru} alt="" className="support_client" />
+            <img src={FutureLearn} alt="" className="support_client" />
+            <img src={KhanAcademy} alt="" className="support_client" />
             {/* </Marquee> */}
           </div>
           <div className="companies">
             {/* <Marquee speed="50" autoFill="true"> */}
-            <div>
-              <img src={Masterclass} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={Skillshare} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={Sololearn} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={Treehouse} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={Udacity} alt="" className="support_client" />
-            </div>
-            <div>
-              <img src={Pluralsight} alt="" className="support_client" />
-            </div>
+            <img src={Masterclass} alt="" className="support_client" />
+            <img src={Skillshare} alt="" className="support_client" />
+            <img src={Sololearn} alt="" className="support_client" />
+            <img src={Treehouse} alt="" className="support_client" />
+            <img src={Udacity} alt="" className="support_client" />
+            <img src={Pluralsight} alt="" className="support_client" />
             {/* </Marquee> */}
           </div>
         </div>

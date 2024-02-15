@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router";
 import { useForm, Controller } from "react-hook-form";
-import { Drawer, Box } from "@mui/material";
+import { Drawer, Box, IconButton } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import List from "@mui/material/List";
 import TextField from "@mui/material/TextField";
@@ -25,6 +25,7 @@ import "./Navbar.css";
 import api from "../../api";
 
 function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const { dispatch, user } = useContext(AuthContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -180,7 +181,7 @@ function Navbar() {
           Sign Up
         </Button>}
       </Box>
- 
+
       <Box style={{ marginTop: "10px", width: "230px" }}>
         {authenticated && <Button
           variant="contained"
@@ -231,8 +232,34 @@ function Navbar() {
     }
   }, [currentPath]);
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <div onClick={handleDrawerToggle}>
+      <List>
+        <ListItem button onClick={() => navigate('/')}>Home</ListItem>
+        <ListItem button onClick={() => navigate('/comparison')}>Compare Course</ListItem>
+        <ListItem button onClick={() => navigate('/blog')}>Blogs</ListItem>
+        <ListItem button onClick={() => navigate('/review')}>Review</ListItem>
+        <ListItem button onClick={handleOpen}>Add Review</ListItem>
+        {/* Add additional ListItem components for other navigation items */}
+      </List>
+    </div>
+  );
+
   return (
     <div className="home-top-bar">
+      <IconButton
+        edge="start"
+        color="inherit"
+        aria-label="open drawer"
+        onClick={handleDrawerToggle}
+        className="menu-button"
+      >
+        <MenuIcon />
+      </IconButton>
       <button
         className="home-top-bar-section logo-section navbar_logo_main"
         style={{ background: "none", border: "none" }}
@@ -246,32 +273,28 @@ function Navbar() {
           className="logo-main landing_navbar_logo"
         ></img>
       </button>
-
       <div className="home-top-bar-section button-section landing_navbar_link_btn_main">
         {/* {user && <span class="user-email">{user?.email}</span>} */}
 
         <div className="landing_navbar_link_main">
           <div
             onClick={() => handleActiveNavlink("/")}
-            className={`landing_navbar_navLink${
-              currentPath === "/" ? " active_navlink" : ""
-            }`}
+            className={`landing_navbar_navLink${currentPath === "/" ? " active_navlink" : ""
+              }`}
           >
             Home
           </div>
           <div
             onClick={() => handleActiveNavlink("/comparison")}
-            className={`landing_navbar_navLink${
-              currentPath === "/comparison" ? " active_navlink" : ""
-            }`}
+            className={`landing_navbar_navLink${currentPath === "/comparison" ? " active_navlink" : ""
+              }`}
           >
             Compare Course
           </div>
           <div
             onClick={() => handleActiveNavlink("/blog")}
-            className={`landing_navbar_navLink${
-              currentPath === "/blog" ? " active_navlink" : ""
-            }`}
+            className={`landing_navbar_navLink${currentPath === "/blog" ? " active_navlink" : ""
+              }`}
           >
             Blogs
           </div>
@@ -300,7 +323,7 @@ function Navbar() {
             </Button>
           </div>
 
-          {/* 
+          {/*
           <Button
             onClick={() => {
               setIsDrawerOpen(true);
@@ -310,6 +333,16 @@ function Navbar() {
           </Button> */}
         </div>
       </div>
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true,
+        }}
+      >
+        {drawer}
+      </Drawer>
 
       {/* drawer */}
       <Drawer
