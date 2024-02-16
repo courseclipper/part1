@@ -3,9 +3,14 @@
     margin: auto;
 }
 
+.blog-img {
+    text-align: center;
+}
+
 .blog-img  img{
-    width: 75rem;
-    height: 13rem;
+    width: 100%;
+    max-width: 75rem;
+    height: 20rem;
 }
 
 .blog-content {
