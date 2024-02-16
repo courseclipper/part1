@@ -96,7 +96,8 @@ body {
   align-items: center;
   gap: 1rem;
   /* margin: 5rem 2rem 5rem 10rem; */
-  padding: 30px;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }
 
 #navbar-search-box {
@@ -320,7 +321,6 @@ input:focus {
 
   .home-main-section {
     width: 100%;
-    padding: 0;
   }
 
   .tag2 {
@@ -343,7 +343,7 @@ input:focus {
   }
 
   .support_client {
-    width: 45% !important;
+    width: 80% !important;
   }
 
   .companies img {
