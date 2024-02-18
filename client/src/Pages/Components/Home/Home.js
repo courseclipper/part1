@@ -29,7 +29,7 @@ function Home() {
           <div className="top">
             <div className="left">
               <div className="tag find_course_heading">
-                UK'S #1 COURSE REVIEWS PLATFORM
+                BEST COURSE REVIEWS PLATFORM
               </div>
               <div className="tag2 right_course_heading_">
                 FIND THE RIGHT <br />
