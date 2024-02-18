@@ -33,6 +33,7 @@ body {
 
 .supported_client_main {
   margin-bottom: 5rem;
+  width: 100%;
 }
 
 .landing_supported_heading {
@@ -41,7 +42,8 @@ body {
 }
 
 .support_client {
-  margin: 0 2rem;
+  width: 15% !important;
+  margin-top: 10px;
 }
 
 .dialog-box {
@@ -94,7 +96,8 @@ body {
   align-items: center;
   gap: 1rem;
   /* margin: 5rem 2rem 5rem 10rem; */
-  padding: 30px;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }
 
 #navbar-search-box {
@@ -188,7 +191,7 @@ input:focus {
 }
 
 .top {
-  width: 70%;
+  width: 80%;
   min-height: 300px;
   /* background-color: #0bb980; */
   display: flex;
@@ -237,11 +240,14 @@ input:focus {
 .companies {
   display: flex;
   /* flex-direction: row; */
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: row;
   width: 100%;
+  max-width: 1200px;
+  margin: auto;
   /* gap: 3rem; */
-  margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .companies img {
@@ -251,11 +257,39 @@ input:focus {
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
+@media (max-width: 960px) {
+  .support_client {
+    width: 30% !important;
+  }
+
+  .top {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .left {
+    padding-left: 38px;
+    width: 85%;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .home-top-bar {
     width: 100%;
     padding: 0;
     margin: 0;
+  }
+
+  .support_client {
+    width: 35% !important;
+  }
+
+  .companies {
+    justify-content: space-around;
   }
 
   .logo-section {
@@ -287,31 +321,10 @@ input:focus {
 
   .home-main-section {
     width: 100%;
-    padding: 0;
-  }
-
-  .top {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .left {
-    padding-left: 38px;
-    width: 85%;
   }
 
   .tag2 {
     font-size: 2.3rem;
-  }
-
-  .right {
-    width: 100%;
-  }
-
-  .companies {
-    width: 400px;
-    flex-wrap: wrap;
-    margin-top: 50px;
   }
 
   .bottom {
@@ -324,9 +337,13 @@ input:focus {
   }
 }
 
-@media (max-width: 400px) and (min-width: 300px) {
+@media (max-width: 400px) {
   .companies {
     width: 347px;
+  }
+
+  .support_client {
+    width: 80% !important;
   }
 
   .companies img {

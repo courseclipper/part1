@@ -13,6 +13,8 @@
   justify-content: space-around;
   align-items: center;
   padding: 1rem 0;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .footer-left {
@@ -61,4 +63,21 @@
   margin: 0 !important;
   font-size: 38px;
   font-weight: 600;
+}
+
+@media (max-width: 768px){
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 500px){
+  .footer_link_main {
+    justify-content: space-between;
+  }
+
+  .footer_about_link {
+    margin-right: 0rem;
+  }
 }

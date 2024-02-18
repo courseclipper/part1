@@ -12,7 +12,6 @@ const Reviews = () => {
     try {
       const response = await api.get("/reviews");
       setReview(response.data);
-      debugger;
       console.log(response.data);
     } catch (err) {
       console.log(err);

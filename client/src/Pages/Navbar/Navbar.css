@@ -1,7 +1,7 @@
 .landing_navbar_link_main {
   display: flex;
   justify-content: center;
-  width: 73%;
+  width: 60%;
   cursor: pointer;
 }
 
@@ -9,7 +9,7 @@
   width: 80px !important;
 }
 .landing_navbar_review {
-  width: 27%;
+  width: 40%;
 }
 
 .landing_navbar_navLink {
@@ -22,7 +22,7 @@
 
 .landing_review_add_review_main {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 }
 
 .landing_navbar_add_review {
@@ -46,4 +46,60 @@
 .landing_navbar_logo {
   width: 55px;
   height: 55px;
+}
+
+.home-top-bar {
+  display: flex;
+  align-items: center;
+  /* gap: 40rem; */
+  /* position: sticky; */
+  /* top: 0; */
+  /* z-index: 1000; */
+  background-color: #327e8c;
+  padding: 0.5rem 6rem !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  height: 57px;
+}
+
+.menu-button {
+  display: none !important;
+  position: absolute !important;
+  right: 32px !important;
+}
+
+@media (max-width: 960px) {
+  .menu-button {
+    display: block !important;
+  }
+
+  .navbar_logo_main {
+    position: absolute !important;
+    left: 32px !important;
+    margin-left: 0px;
+  }
+
+  .landing_navbar_link_main,
+  .landing_navbar_review {
+    display: none;
+  }
+
+  .home-top-bar {
+    justify-content: space-between; /* This will position the logo and the menu icon on opposite sides */
+  }
+
+  /* Other styles to make the drawer and list items look good on mobile */
+  .MuiDrawer-paper {
+    width: 250px;
+  }
+
+  .MuiListItem-button {
+    color: #327e8c; /* Adjust the color to fit your design */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-top-bar {
+    width: auto;
+  }
 }
