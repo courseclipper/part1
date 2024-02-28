@@ -268,7 +268,7 @@ function Navbar() {
         }}
       >
         <img
-          src="cc.png"
+          src="cc.jpeg"
           alt="logo"
           className="logo-main landing_navbar_logo"
         ></img>
