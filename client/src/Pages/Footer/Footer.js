@@ -16,9 +16,9 @@ function Footer() {
           <a href="/review" className="add_review_btn_main">
             <div
               className="get_started_btn"
-              // onClick={() => {
-              //   navigate("/signup");
-              // }}
+            // onClick={() => {
+            //   navigate("/signup");
+            // }}
             >
               Review{" "}
               <IoIosArrowForward
@@ -30,13 +30,13 @@ function Footer() {
       </div>
       <hr style={{ borderTop: "1px solid white" }} />
       <div className="footer_link_main">
-        <a href="/about" target="_blank" className="footer_about_link">
+        <a href="/about" className="footer_about_link">
           About Us
         </a>
-        <a href="/privacy" target="_blank" className="footer_about_link">
+        <a href="/privacy" className="footer_about_link">
           Privacy Policy
         </a>
-        <a href="/term" target="_blank" className="footer_about_link">
+        <a href="/term" className="footer_about_link">
           Terms & Conditions
         </a>
       </div>
