@@ -1,6 +1,6 @@
 .about-main {
     width: 80%;
-    
+
     background-color: #F5F7FE;
     margin: auto;
 }
@@ -89,9 +89,9 @@
     font-size: 26px;
 }
 
-/* 
+/*
 .about-text p::after {
-     
+
     content: "";
     position: absolute;
     left: 50%;
@@ -107,17 +107,13 @@
 
 .text-box p {
     text-align: end;
-    font-size: 21px;    
+    font-size: 21px;
 }
 
 .text-box12 p {
     text-align: end;
-    font-size: 21px;    
+    font-size: 21px;
 }
-
-
-
-
 
 h2 {
     font-size: 50px;
@@ -153,22 +149,48 @@ h2:hover::after {
     width: 100%;
 }
 
-
 .img-box img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     transition: all ease 1s;
 }
+
 .img-box:hover img {
     scale: 1.2;
 }
+
+.contact-us-section {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 32px 0px;
+    text-align: center;
+  }
+
+.contact-us-section h2 {
+    color: #333;
+  }
+
+.contact-us-section p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+.contact-us-section a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+.contact-us-section a:hover {
+    text-decoration: underline;
+  }
 
 @media (max-width: 768px){
     .about-sub-div img {
         width: 100%;
         /* border: 1px solid black; */
-    
+
     }
     .about-text p {
         /* background-color: chartreuse; */
@@ -177,7 +199,7 @@ h2:hover::after {
         background: #F5F7FE;
         font-size: 19px;
         line-height: 1.6em;
-        
+
     }
 
     .about-img-text {
@@ -188,7 +210,7 @@ h2:hover::after {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-    
+
     }
 
     .about-img-text2 {
@@ -199,7 +221,7 @@ h2:hover::after {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-    
+
     }
 
     .about-img-text3 {
@@ -211,8 +233,8 @@ h2:hover::after {
         justify-content: center;
         flex-direction: column;
 
-    
-    
+
+
     }
     .img-box {
         /* background-color: rgb(194, 165, 221); */
@@ -221,8 +243,8 @@ h2:hover::after {
         height: 90%;
         margin-top: 100px;
     }
-    
-    
+
+
     .text-box  {
         /* background-color: cadetblue; */
         /* border: 1px solid black; */
@@ -230,9 +252,9 @@ h2:hover::after {
         height: 60%;
         font-size: 17px;
         text-align: left;
-        
-    
-    
+
+
+
     }
 
     .text-box2{
