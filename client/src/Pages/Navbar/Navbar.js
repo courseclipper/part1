@@ -448,6 +448,28 @@ function Navbar() {
                     )}
                   />
                 </div>
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="courseName">Enter Your Course Title</label>
+                  <Controller
+                    name="courseName"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        id="courseName"
+                        style={{
+                          width: "325px",
+                          height: "35px",
+                          borderRadius: "5px",
+                          border: "1px solid grey",
+                        }}
+                      />
+                    )}
+                  />
+                </div>
+
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <label htmlFor="catagory-name">
                     Select your course category
