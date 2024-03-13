@@ -2,7 +2,6 @@ import React from "react";
 import "../About/About.css";
 import aboutImg from "../Assets/about-us.png";
 import Navbar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 
 const About = () => {
   return (
@@ -106,6 +105,11 @@ const About = () => {
               course choice is a well-informed one.
             </p>
           </div>
+        </div>
+
+        <div className="contact-us-section">
+          <h2>Contact Us</h2>
+          <p>Have questions or need assistance? Reach out to us at: <a href="mailto:contact@courseclipper.com">contact@courseclipper.com</a></p>
         </div>
       </div>
     </>

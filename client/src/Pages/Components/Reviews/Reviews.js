@@ -60,9 +60,9 @@ const Reviews = () => {
               <div
                 className="rev-content"
                 onClick={() =>
-                  (window.location.href = item.AffiliatedLink
-                    ? item.AffiliatedLink
-                    : "#")
+                (window.location.href = item.AffiliatedLink
+                  ? item.AffiliatedLink
+                  : "#")
                 }
                 key={id}
               >
@@ -99,7 +99,22 @@ const Reviews = () => {
                     maxHeight: "100%",
                   }}
                 >
-                  <p>{item.courseDescription}</p>
+                  <p><strong>Title:</strong> {item.courseName || 'N/A'}</p>
+                  <div className="rev-time">
+                    {calculateTimeDifference(item.TimeofUpload)}
+                  </div>
+                </div>
+                <div
+                  className="rev-content1"
+                  style={{
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                  }}
+                >
+                  <p><strong>Description:</strong> {item.courseDescription}</p>
                   <div className="rev-time">
                     {calculateTimeDifference(item.TimeofUpload)}
                   </div>
