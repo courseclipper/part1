@@ -4,14 +4,25 @@ import { useNavigate } from "react-router";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Navbar/Navbar";
 import api from "../../../api";
+import { FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 
 const Reviews = () => {
   const navigate = useNavigate();
+  const [filteredReviews, setFilteredReviews] = useState([]);
+  const [selectCourseTitle, setSelectCourseTitle] = useState('');
+  const [enterCourseTitle, setEnterCourseTitle] = useState('');
+  const [uniqueCourseNames, setUniqueCourseNames] = useState([]);
   const [review, setReview] = useState([]);
   const fetchReviews = useCallback(async () => {
     try {
       const response = await api.get("/reviews");
       setReview(response.data.reverse());
+      setFilteredReviews(response.data.reverse());
+      const courseNames = [...new Set(
+        response.data.filter(review => review.courseName)
+          .map(review => review.courseName)
+      )];
+      setUniqueCourseNames(courseNames);
     } catch (err) {
       console.log(err);
     }
@@ -47,13 +58,57 @@ const Reviews = () => {
     }
   };
 
+  const onSelectChange = (event) => {
+    setEnterCourseTitle('');
+    setSelectCourseTitle(event.target.value);
+    const selectedReviews = review.filter(rev => rev.courseName === event.target.value);
+    setFilteredReviews(selectedReviews);
+  }
+
+  const onTextChange = (event) => {
+    setSelectCourseTitle('');
+    setEnterCourseTitle(event.target.value);
+
+    if (event.target.value === '') {
+      setFilteredReviews(review);
+      return;
+    }
+
+    setTimeout(() => {
+      const selectedReviews = review.filter(rev => rev.courseName === event.target.value);
+      setFilteredReviews(selectedReviews);
+    }, 500);
+  }
+
   return (
     <>
       <Navbar />
       <div className="rev-main-cont">
-        <div className="rev-topbar">In Reviews We Trust</div>
+        <div className="rev-topbar">
+          <Stack className="navbar-stack">
+            <FormControl className="navbar-field">
+              <InputLabel id="demo-simple-select-label">Select Course Title</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={selectCourseTitle}
+                label="Select Course Title"
+                onChange={onSelectChange}
+              >
+                {uniqueCourseNames.map(courseName => <MenuItem value={courseName}>{courseName}</MenuItem>)}
+              </Select>
+            </FormControl>
+            <TextField
+              className="navbar-field"
+              d="outlined-basic"
+              label="Enter Course Title"
+              value={enterCourseTitle}
+              onChange={onTextChange}
+            />
+          </Stack>
+        </div>
         <div className="rev-mainsection">
-          {review.map((item, id) => {
+          {filteredReviews.map((item, id) => {
             console.log(item?.platm[0]?.url);
             return (
               <div
