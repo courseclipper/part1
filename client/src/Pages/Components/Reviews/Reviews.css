@@ -89,6 +89,10 @@
   width: 20%;
 }
 
+.navbar-field .MuiOutlinedInput-root input {
+  border: 0px;
+}
+
 @media (max-width: 768px){
   .rev-topbar{
     font-size: 1.6rem;
