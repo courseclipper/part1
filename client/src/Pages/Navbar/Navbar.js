@@ -239,6 +239,8 @@ function Navbar() {
       .catch((error) => {
         console.log(error);
       });
+
+    setDialogOpen(false);
   };
 
   const handleActiveNavlink = (newPath) => {
@@ -392,6 +394,7 @@ function Navbar() {
                   setValue(newValue);
                   console.log(newValue);
                 }}
+                required
               />
               <h4>Tell Us More About Your Exerience</h4>
             </Box>
@@ -415,6 +418,7 @@ function Navbar() {
                         borderRadius: "5px",
                         border: "1px solid grey",
                       }}
+                      required
                     />
                   )}
                 />
@@ -441,6 +445,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -463,6 +468,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -484,6 +490,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -538,6 +545,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -560,6 +568,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -567,7 +576,6 @@ function Navbar() {
               </div>
               <div style={{ margin: "29px 120px 0px" }}>
                 <Button
-                  onClick={handleClose}
                   variant="contained"
                   type="submit"
                   sx={{ backgroundColor: "rgb(9, 143, 96)", width: "100px" }}
