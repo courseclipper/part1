@@ -11,8 +11,7 @@ const Reviews = () => {
   const fetchReviews = useCallback(async () => {
     try {
       const response = await api.get("/reviews");
-      setReview(response.data);
-      console.log(response.data);
+      setReview(response.data.reverse());
     } catch (err) {
       console.log(err);
     }

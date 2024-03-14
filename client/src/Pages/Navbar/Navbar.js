@@ -38,7 +38,10 @@ function Navbar() {
   const [Reviews, setReviews] = useState([]);
   const [currentPath, setCurrentPath] = useState(null);
 
-  const handleOpen = () => setDialogOpen(true);
+  const handleOpen = () => {
+    getReviews();
+    setDialogOpen(true);
+  }
   const handleClose = () => setDialogOpen(false);
   // const handleOpenLogin = () => setLoginOpen(true);
   // const handleCloseLogin = () => setLoginOpen(false);
@@ -75,6 +78,16 @@ function Navbar() {
     // console.log(currentPath);
     // setCurrentPath(currentPath);
   }, []);
+
+  const getReviews = async () => {
+    try {
+      const response = await api.get("/reviews");
+      setReviews(response.data);
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
 
@@ -205,6 +218,12 @@ function Navbar() {
   const { control, handleSubmit, register } = useForm();
 
   const onSubmit = async (data) => {
+    const isAlreadyReviewed = Reviews.some(review => review.emailId === data.emailId && (review.courseName === data.courseName || review.courseURL === data.courseURL));
+    if (isAlreadyReviewed) {
+      alert('You have already reviewed this course!');
+      return;
+    }
+
     const url = data?.courseURL;
     const hostname = url ? new URL(url).hostname : null;
     const imageUrl = hostname ? `https://${hostname}` : null;
