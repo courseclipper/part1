@@ -75,7 +75,7 @@ const Reviews = () => {
     }
 
     setTimeout(() => {
-      const selectedReviews = review.filter(rev => rev.courseName === event.target.value);
+      const selectedReviews = review.filter(rev => rev.courseName?.toLowerCase()?.includes(event.target.value?.toLowerCase()));
       setFilteredReviews(selectedReviews);
     }, 500);
   }

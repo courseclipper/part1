@@ -218,7 +218,7 @@ function Navbar() {
   const { control, handleSubmit, register } = useForm();
 
   const onSubmit = async (data) => {
-    const isAlreadyReviewed = Reviews.some(review => review.emailId === data.emailId && (review.courseName === data.courseName || review.courseURL === data.courseURL));
+    const isAlreadyReviewed = Reviews.some(review => review.emailId.toLowerCase() === data.emailId.toLowerCase() && (review.courseName.toLowerCase() === data.courseName.toLowerCase() || review.courseURL.toLowerCase() === data.courseURL.toLowerCase()));
     if (isAlreadyReviewed) {
       alert('You have already reviewed this course!');
       return;
