@@ -16,10 +16,12 @@ const Reviews = () => {
   const fetchReviews = useCallback(async () => {
     try {
       const response = await api.get("/reviews");
-      setReview(response.data.reverse());
-      setFilteredReviews(response.data.reverse());
+      const data = response.data;
+      data.reverse();
+      setReview(data);
+      setFilteredReviews(data);
       const courseNames = [...new Set(
-        response.data.filter(review => review.courseName)
+        data.filter(review => review.courseName)
           .map(review => review.courseName)
       )];
       setUniqueCourseNames(courseNames);
