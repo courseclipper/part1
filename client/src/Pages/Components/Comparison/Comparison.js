@@ -50,13 +50,7 @@ const Comparison = () => {
   useEffect(() => {
     fetchCategory();
   }, []);
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const searchValue = document.querySelector(
-      'input[name="searchInput"]'
-    ).value;
-    setSearchKeyword(searchValue);
-  };
+
   const handleCourseClick = (courseName) => {
     setSelectedCourse(courseName);
   };
@@ -96,18 +90,6 @@ const Comparison = () => {
       <div className="comp-main-cont">
         <div className="comp-left-cont">
           <div className="list-container">
-            <div className="search-box">
-              <form className="example" action="" style={{ maxWidth: "380px" }}>
-                <input
-                  type="text"
-                  placeholder="Search Course.."
-                  name="searchInput"
-                />
-                <button type="button" onClick={handleSearch}>
-                  Search
-                </button>
-              </form>
-            </div>
             <div
               className="related-div"
               style={{
