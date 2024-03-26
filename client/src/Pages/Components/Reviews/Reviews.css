@@ -79,8 +79,26 @@
   color: #888;
 }
 
+.navbar-stack {
+  flex-direction: row !important;
+  gap: 40px;
+  justify-content: center;
+}
+
+.navbar-field {
+  width: 20%;
+}
+
+.navbar-field .MuiOutlinedInput-root input {
+  border: 0px;
+}
+
 @media (max-width: 768px){
   .rev-topbar{
     font-size: 1.6rem;
+  }
+
+  .navbar-field {
+    width: 45%;
   }
 }

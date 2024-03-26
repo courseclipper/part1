@@ -6,7 +6,6 @@ import { useForm, Controller } from "react-hook-form";
 import { Drawer, Box, IconButton } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import List from "@mui/material/List";
-import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -17,10 +16,6 @@ import MailIcon from "@mui/icons-material/Mail";
 import Dialog from "@mui/material/Dialog";
 import Rating from "@mui/material/Rating";
 import { AuthContext } from "../../context/authContext";
-import Google from "@mui/icons-material/Google";
-import Logout from "../Components/Google/Logout";
-import { Menu } from "antd";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
 import api from "../../api";
 
@@ -38,7 +33,10 @@ function Navbar() {
   const [Reviews, setReviews] = useState([]);
   const [currentPath, setCurrentPath] = useState(null);
 
-  const handleOpen = () => setDialogOpen(true);
+  const handleOpen = () => {
+    getReviews();
+    setDialogOpen(true);
+  }
   const handleClose = () => setDialogOpen(false);
   // const handleOpenLogin = () => setLoginOpen(true);
   // const handleCloseLogin = () => setLoginOpen(false);
@@ -75,6 +73,16 @@ function Navbar() {
     // console.log(currentPath);
     // setCurrentPath(currentPath);
   }, []);
+
+  const getReviews = async () => {
+    try {
+      const response = await api.get("/reviews");
+      setReviews(response.data);
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
 
@@ -205,6 +213,12 @@ function Navbar() {
   const { control, handleSubmit, register } = useForm();
 
   const onSubmit = async (data) => {
+    const isAlreadyReviewed = Reviews.some(review => review.emailId.toLowerCase() === data.emailId.toLowerCase() && (review.courseName.toLowerCase() === data.courseName.toLowerCase() || review.courseURL.toLowerCase() === data.courseURL.toLowerCase()));
+    if (isAlreadyReviewed) {
+      alert('You have already reviewed this course!');
+      return;
+    }
+
     const url = data?.courseURL;
     const hostname = url ? new URL(url).hostname : null;
     const imageUrl = hostname ? `https://${hostname}` : null;
@@ -220,6 +234,8 @@ function Navbar() {
       .catch((error) => {
         console.log(error);
       });
+
+    setDialogOpen(false);
   };
 
   const handleActiveNavlink = (newPath) => {
@@ -373,6 +389,7 @@ function Navbar() {
                   setValue(newValue);
                   console.log(newValue);
                 }}
+                required
               />
               <h4>Tell Us More About Your Exerience</h4>
             </Box>
@@ -396,6 +413,7 @@ function Navbar() {
                         borderRadius: "5px",
                         border: "1px solid grey",
                       }}
+                      required
                     />
                   )}
                 />
@@ -422,6 +440,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -444,6 +463,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -465,6 +485,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -519,6 +540,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -541,6 +563,7 @@ function Navbar() {
                           borderRadius: "5px",
                           border: "1px solid grey",
                         }}
+                        required
                       />
                     )}
                   />
@@ -548,7 +571,6 @@ function Navbar() {
               </div>
               <div style={{ margin: "29px 120px 0px" }}>
                 <Button
-                  onClick={handleClose}
                   variant="contained"
                   type="submit"
                   sx={{ backgroundColor: "rgb(9, 143, 96)", width: "100px" }}

@@ -50,13 +50,7 @@ const Comparison = () => {
   useEffect(() => {
     fetchCategory();
   }, []);
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const searchValue = document.querySelector(
-      'input[name="searchInput"]'
-    ).value;
-    setSearchKeyword(searchValue);
-  };
+
   const handleCourseClick = (courseName) => {
     setSelectedCourse(courseName);
   };
@@ -96,18 +90,6 @@ const Comparison = () => {
       <div className="comp-main-cont">
         <div className="comp-left-cont">
           <div className="list-container">
-            <div className="search-box">
-              <form className="example" action="" style={{ maxWidth: "380px" }}>
-                <input
-                  type="text"
-                  placeholder="Search Course.."
-                  name="searchInput"
-                />
-                <button type="button" onClick={handleSearch}>
-                  Search
-                </button>
-              </form>
-            </div>
             <div
               className="related-div"
               style={{
@@ -163,22 +145,18 @@ const Comparison = () => {
               <div
                 className="rev-content"
                 onClick={() =>
-                  (window.location.href = review.AffiliatedLink
-                    ? review.AffiliatedLink
-                    : "#")
+                (window.location.href = review.AffiliatedLink
+                  ? review.AffiliatedLink
+                  : "#")
                 }
                 style={{ width: "100%", display: "flex", paddingTop: "20px" }}
                 key={`${index}-${review.courseName}`}
               >
                 <div style={{ minWidth: "74px", height: "100px" }}>
                   <img
-                    src={
-                      review.Logo
-                        ? review.Logo
-                        : "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og"
-                    }
+                    src={`https://logo.clearbit.com/${review?.Logo}`}
                     alt=""
-                    style={{ width: "100%", height: "100%" }}
+                    style={{ width: "65px", height: "65px" }}
                   />
                 </div>
                 <div>

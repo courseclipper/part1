@@ -4,15 +4,20 @@ import { useNavigate } from "react-router";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Navbar/Navbar";
 import api from "../../../api";
+import { Stack, TextField } from "@mui/material";
 
 const Reviews = () => {
   const navigate = useNavigate();
+  const [filteredReviews, setFilteredReviews] = useState([]);
+  const [enterCourseTitle, setEnterCourseTitle] = useState('');
   const [review, setReview] = useState([]);
   const fetchReviews = useCallback(async () => {
     try {
       const response = await api.get("/reviews");
-      setReview(response.data);
-      console.log(response.data);
+      const data = response.data;
+      data.reverse();
+      setReview(data);
+      setFilteredReviews(data);
     } catch (err) {
       console.log(err);
     }
@@ -48,13 +53,37 @@ const Reviews = () => {
     }
   };
 
+  const onTextChange = (event) => {
+    setEnterCourseTitle(event.target.value);
+
+    if (event.target.value === '') {
+      setFilteredReviews(review);
+      return;
+    }
+
+    setTimeout(() => {
+      const selectedReviews = review.filter(rev => rev.courseName?.toLowerCase()?.includes(event.target.value?.toLowerCase()));
+      setFilteredReviews(selectedReviews);
+    }, 500);
+  }
+
   return (
     <>
       <Navbar />
       <div className="rev-main-cont">
-        <div className="rev-topbar">In Reviews We Trust</div>
+        <div className="rev-topbar">
+          <Stack className="navbar-stack">
+            <TextField
+              className="navbar-field"
+              d="outlined-basic"
+              label="Search by Course Title"
+              value={enterCourseTitle}
+              onChange={onTextChange}
+            />
+          </Stack>
+        </div>
         <div className="rev-mainsection">
-          {review.map((item, id) => {
+          {filteredReviews.map((item, id) => {
             console.log(item?.platm[0]?.url);
             return (
               <div
