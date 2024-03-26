@@ -18,8 +18,11 @@ import Rating from "@mui/material/Rating";
 import { AuthContext } from "../../context/authContext";
 import "./Navbar.css";
 import api from "../../api";
+import LoginModal from "../Components/LoginModal/LoginModal";
 
 function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('User') ? true : false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const { dispatch, user } = useContext(AuthContext);
@@ -34,8 +37,12 @@ function Navbar() {
   const [currentPath, setCurrentPath] = useState(null);
 
   const handleOpen = () => {
-    getReviews();
-    setDialogOpen(true);
+    if (isLoggedIn) {
+      getReviews();
+      setDialogOpen(true);
+    } else {
+      setLoginModalOpen(true);
+    }
   }
   const handleClose = () => setDialogOpen(false);
   // const handleOpenLogin = () => setLoginOpen(true);
@@ -100,11 +107,11 @@ function Navbar() {
       routeName: "/review",
     },
     {
-      route: "Compare Course",
-      routeName: "/comparison",
+      route: "Courses",
+      routeName: "/courses",
     },
     {
-      route: "Blogs",
+      route: "Blog",
       routeName: "/blog",
     },
     {
@@ -213,7 +220,9 @@ function Navbar() {
   const { control, handleSubmit, register } = useForm();
 
   const onSubmit = async (data) => {
-    const isAlreadyReviewed = Reviews.some(review => review.emailId.toLowerCase() === data.emailId.toLowerCase() && (review.courseName.toLowerCase() === data.courseName.toLowerCase() || review.courseURL.toLowerCase() === data.courseURL.toLowerCase()));
+    const user = JSON.parse(localStorage.getItem('User'))?.user;
+
+    const isAlreadyReviewed = Reviews.some(review => review.emailId.toLowerCase() === user.email.toLowerCase() && (review.courseName.toLowerCase() === data.courseName.toLowerCase() || review.courseURL.toLowerCase() === data.courseURL.toLowerCase()));
     if (isAlreadyReviewed) {
       alert('You have already reviewed this course!');
       return;
@@ -223,7 +232,7 @@ function Navbar() {
     const hostname = url ? new URL(url).hostname : null;
     const imageUrl = hostname ? `https://${hostname}` : null;
     data.Logo = imageUrl;
-    const finalData = { ...data, Rating: value };
+    const finalData = { ...data, Rating: value, username: user.name, emailId: user.email };
     api
       .post("/reviews", finalData)
       .then((response) => {
@@ -252,17 +261,23 @@ function Navbar() {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('User');
+    setIsLoggedIn(false);
+  }
+
   const drawer = (
     <div onClick={handleDrawerToggle}>
       <List>
         <ListItem button onClick={() => navigate('/')}>Home</ListItem>
-        <ListItem button onClick={() => navigate('/comparison')}>Compare Course</ListItem>
-        <ListItem button onClick={() => navigate('/blog')}>Blogs</ListItem>
-        <ListItem button onClick={() => navigate('/review')}>Review</ListItem>
+        <ListItem button onClick={() => navigate('/courses')}>Courses</ListItem>
+        <ListItem button onClick={() => navigate('/blog')}>Blog</ListItem>
+        <ListItem button onClick={() => navigate('/review')}>Reviews</ListItem>
         <ListItem button onClick={handleOpen}>Add Review</ListItem>
+        {isLoggedIn && <ListItem button onClick={handleLogout}>Logout</ListItem>}
         {/* Add additional ListItem components for other navigation items */}
       </List>
-    </div>
+    </div >
   );
 
   return (
@@ -284,7 +299,7 @@ function Navbar() {
         }}
       >
         <img
-          src="cc.png"
+          src="Logo/courseclipper.png"
           alt="logo"
           className="logo-main landing_navbar_logo"
         ></img>
@@ -301,18 +316,18 @@ function Navbar() {
             Home
           </div>
           <div
-            onClick={() => handleActiveNavlink("/comparison")}
-            className={`landing_navbar_navLink${currentPath === "/comparison" ? " active_navlink" : ""
+            onClick={() => handleActiveNavlink("/courses")}
+            className={`landing_navbar_navLink${currentPath === "/courses" ? " active_navlink" : ""
               }`}
           >
-            Compare Course
+            Courses
           </div>
           <div
             onClick={() => handleActiveNavlink("/blog")}
             className={`landing_navbar_navLink${currentPath === "/blog" ? " active_navlink" : ""
               }`}
           >
-            Blogs
+            Blog
           </div>
         </div>
         <div className="landing_navbar_review">
@@ -324,7 +339,7 @@ function Navbar() {
               }}
               className="navbar_review_btn"
             >
-              REVIEW
+              REVIEWS
             </Button>
             <Button
               style={{
@@ -337,6 +352,17 @@ function Navbar() {
             >
               Add Reviews <AddCircleIcon />
             </Button>
+            {isLoggedIn && <Button
+              sx={{
+                fontSize: "17px", color: "white", backgroundColor: "#6b1d1d",
+                '&:hover': {
+                  backgroundColor: '#6b1d1d',
+                },
+              }}
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>}
           </div>
 
           {/*
@@ -371,7 +397,6 @@ function Navbar() {
         </Box>
       </Drawer>
 
-      {/*add reviews Dialog box */}
       <Dialog
         open={dialoglOpen}
         onClose={handleClose}
@@ -423,7 +448,7 @@ function Navbar() {
               </Box>
 
               <div className="dialog-sub-box">
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                {/* <div style={{ display: "flex", flexDirection: "column" }}>
                   <label htmlFor="your-name">Enter Your Name</label>
                   <Controller
                     name="username"
@@ -467,7 +492,7 @@ function Navbar() {
                       />
                     )}
                   />
-                </div>
+                </div> */}
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <label htmlFor="courseName">Enter Your Course Title</label>
@@ -640,6 +665,8 @@ function Navbar() {
           </form>
         </Box>
       </Dialog> */}
+
+      <LoginModal modalOpen={loginModalOpen} setModalOpen={setLoginModalOpen} />
     </div>
   );
 }

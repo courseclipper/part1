@@ -19,7 +19,7 @@ function Login() {
           // alert("YOUR GMAIL LOGIN PASSWORD IS YOUR EMAIL");
           dispatch({ type: "LOGIN", payload: res.data });
           localStorage.setItem("User", JSON.stringify(res.data));
-          navigate("/review");
+          window.location.reload();
         }
       })
       .catch((err) => {
@@ -36,7 +36,7 @@ function Login() {
       onSuccess={onSuccess}
       onFailure={onFailure}
       cookiePolicy={"single-host-origin"}
-      isSignedIn={true}
+      isSignedIn={false}
     />
   );
 }
