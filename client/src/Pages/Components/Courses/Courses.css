@@ -1,0 +1,25 @@
+.note-section {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 32px 0px;
+    text-align: center;
+  }
+
+.note-section h2 {
+    color: #333;
+  }
+
+.note-section p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+.note-section a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+.note-section a:hover {
+    text-decoration: underline;
+  }
