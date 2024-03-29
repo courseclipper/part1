@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Form, Input, message } from "antd";
 import FormItem from "antd/es/form/FormItem";
 import "./AdminLogin.css";
@@ -8,34 +8,35 @@ import Navbar from "./Navbar/Navbar";
 
 function AdminLogin() {
   const navigate = useNavigate();
-  const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
-  const customSubmitFunction = (data) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
     if (
-      data.username === "xtzt092@#14pqnz" &&
-      data.password === "478420478457"
+      username === "course-clipper-admin" &&
+      password === "Password123"
     ) {
       localStorage.setItem("AdminCondition", "true");
       navigate("/admin");
+    } else {
+      alert('Incorrect username or password!');
     }
   };
 
   return (
     <>
       <Navbar />
-      <div
-        className="form-container"
-        onSubmit={handleSubmitAdmin(customSubmitFunction)}
-      >
+      <div className="form-container">
         <Form layout="vertical" className="register-form">
           <h3 className="text-center">Login</h3>
-          <FormItem label="email" name="email">
-            <Input type="email" required />
+          <FormItem label="Username" name="Username">
+            <Input required value={username} onChange={(e) => setUsername(e.target.value)} />
           </FormItem>
           <FormItem label="Password" name="Password">
-            <Input type="password" required />
+            <Input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
           </FormItem>
-          <button className="btn btn-primary" type="submit">
-            Register
+          <button className="btn btn-primary" onClick={handleSubmit}>
+            Login
           </button>
         </Form>
       </div>

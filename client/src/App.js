@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { gapi } from "gapi-script";
 import Blog from "./Pages/Components/Blog/Blog";
 import Review from "./Pages/Components/Reviews/Reviews";
-import Comparison from "./Pages/Components/Comparison/Comparison";
 import Privacy from "./Pages/Components/Privacy/Privacy";
 import Term from "./Pages/Components/Term/Term";
 import About from "./Pages/Components/About/About";
@@ -21,6 +20,8 @@ import { PlatformContextProvider } from "./context/PlatFormContext";
 import CategoryAdminAuth from "./Pages/Components/CategoryAdminAuth/CategoryAdminAuth";
 import AdminLogin from "./Pages/AdminLogin";
 import Footer from "./Pages/Footer/Footer";
+import Courses from "./Pages/Components/Courses/Courses";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
   const [Categories, setCategories] = useState([]);
@@ -91,10 +92,10 @@ function App() {
       ),
     },
     {
-      path: "/comparison",
+      path: "/courses",
       element: (
         <ComparisonLayout>
-          <Comparison />
+          <Courses />
         </ComparisonLayout>
       ),
     },
@@ -131,7 +132,7 @@ function App() {
       ),
     },
     {
-      path: "/adminLogin",
+      path: "/admin-login",
       element: (
         <AuthLayout>
           <AdminLogin />
@@ -159,8 +160,10 @@ function App() {
 
   return (
     <div>
-      <RouterProvider router={router} />
-      <Footer />
+      <GoogleOAuthProvider clientId="42197092783-pgo3t88e1l9429ls8962lfnkem6h8fkb.apps.googleusercontent.com">
+        <RouterProvider router={router} />
+        <Footer />
+      </GoogleOAuthProvider>
     </div>
   );
 }

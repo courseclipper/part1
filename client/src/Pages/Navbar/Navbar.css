@@ -23,6 +23,7 @@
 .landing_review_add_review_main {
   display: flex;
   justify-content: flex-end;
+  gap: 16px;
 }
 
 .landing_navbar_add_review {
