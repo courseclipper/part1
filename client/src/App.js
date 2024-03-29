@@ -21,6 +21,7 @@ import CategoryAdminAuth from "./Pages/Components/CategoryAdminAuth/CategoryAdmi
 import AdminLogin from "./Pages/AdminLogin";
 import Footer from "./Pages/Footer/Footer";
 import Courses from "./Pages/Components/Courses/Courses";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
   const [Categories, setCategories] = useState([]);
@@ -159,8 +160,10 @@ function App() {
 
   return (
     <div>
-      <RouterProvider router={router} />
-      <Footer />
+      <GoogleOAuthProvider clientId="42197092783-pgo3t88e1l9429ls8962lfnkem6h8fkb.apps.googleusercontent.com">
+        <RouterProvider router={router} />
+        <Footer />
+      </GoogleOAuthProvider>
     </div>
   );
 }
