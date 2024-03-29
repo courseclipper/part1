@@ -128,7 +128,7 @@ const Reviews = () => {
                     maxHeight: "100%",
                   }}
                 >
-                  <p><strong>Title:</strong> {item.courseName || 'N/A'}</p>
+                  <p>Title: <strong>{item.courseName || 'N/A'}</strong></p>
                   <div className="rev-time">
                     {calculateTimeDifference(item.TimeofUpload)}
                   </div>
@@ -143,7 +143,7 @@ const Reviews = () => {
                     maxHeight: "100%",
                   }}
                 >
-                  <p><strong>Description:</strong> {item.courseDescription}</p>
+                  <p>Description: <strong>{item.courseDescription}</strong></p>
                   <div className="rev-time">
                     {calculateTimeDifference(item.TimeofUpload)}
                   </div>
