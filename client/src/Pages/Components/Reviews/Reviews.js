@@ -168,7 +168,7 @@ const Reviews = () => {
                     maxHeight: "100%",
                   }}
                 >
-                  <Tooltip title={item.review.courseName}>
+                  <Tooltip arrow title={<Typography sx={{ fontSize: '14px' }}>{item.review.courseName}</Typography>}>
                     <p>Title: <strong>{item.review.courseName || 'N/A'}</strong></p>
                   </Tooltip>
                 </div>
@@ -182,7 +182,7 @@ const Reviews = () => {
                     maxHeight: "100%",
                   }}
                 >
-                  <Tooltip title={item.review.courseDescription}>
+                  <Tooltip arrow title={<Typography sx={{ fontSize: '14px' }}>{item.review.courseDescription}</Typography>}>
                     <p sx={{ mb: 2 }}>Description: <strong>{item.review.courseDescription}</strong></p>
                   </Tooltip>
                 </div>
@@ -209,7 +209,7 @@ const Reviews = () => {
             borderRadius: '5px',
             padding: '32px',
             width: '400px',
-            maxHeight: '400px',
+            maxHeight: '600px',
             overflow: 'scroll'
           }}>
             {selectedReviews?.map((selectedReview) => {
@@ -251,7 +251,7 @@ const Reviews = () => {
                       maxHeight: "100%",
                     }}
                   >
-                    <Tooltip title={selectedReview?.courseName}>
+                    <Tooltip arrow title={<Typography sx={{ fontSize: '14px' }}>{selectedReview?.courseName}</Typography>}>
                       <p>Title: <strong>{selectedReview?.courseName || 'N/A'}</strong></p>
                     </Tooltip>
                     <div className="rev-time">
@@ -268,7 +268,7 @@ const Reviews = () => {
                       maxHeight: "100%",
                     }}
                   >
-                    <Tooltip title={selectedReview?.courseDescription}>
+                    <Tooltip arrow title={<Typography sx={{ fontSize: '14px' }}>{selectedReview?.courseDescription}</Typography>}>
                       <p>Description: <strong>{selectedReview?.courseDescription}</strong></p>
                     </Tooltip>
                     <div className="rev-time">
