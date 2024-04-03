@@ -3,14 +3,15 @@ import "../Reviews/Reviews.css";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Navbar/Navbar";
 import api from "../../../api";
-import { Box, Modal, Stack, TextField, Tooltip } from "@mui/material";
+import { Box, Modal, Stack, TextField, Tooltip, Typography } from "@mui/material";
 
 const Reviews = () => {
   const [filteredReviews, setFilteredReviews] = useState([]);
   const [enterCourseTitle, setEnterCourseTitle] = useState('');
   const [review, setReview] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedReview, setSelectedReview] = useState();
+  const [selectedReviews, setSelectedReviews] = useState([]);
+  const [uniqueReviews, setUniqueReviews] = useState([]);
 
   const fetchReviews = useCallback(async () => {
     try {
@@ -27,6 +28,30 @@ const Reviews = () => {
   useEffect(() => {
     fetchReviews();
   }, []);
+
+  useEffect(() => {
+    const uniqueCourses = {};
+
+    filteredReviews.forEach(review => {
+      if (!uniqueCourses[review.courseName]) {
+        uniqueCourses[review.courseName] = {
+          review: review,
+          count: 1
+        };
+      } else {
+        uniqueCourses[review.courseName].count++;
+      }
+    });
+
+    const uniqueReviewsArray = Object.values(uniqueCourses).map(course => {
+      return {
+        review: course.review,
+        count: course.count
+      };
+    });
+
+    setUniqueReviews(uniqueReviewsArray)
+  }, [filteredReviews])
 
   const calculateTimeDifference = (timestamp) => {
     const currentTime = new Date();
@@ -71,11 +96,19 @@ const Reviews = () => {
   }
 
   const handleClickReview = (review) => {
-    setSelectedReview(review)
+    setSelectedReviews(filteredReviews.filter(rev => rev.courseName === review.courseName))
     setModalOpen(true)
 
     if (review.AffiliatedLink) {
       window.location.href = review.AffiliatedLink
+    }
+  }
+
+  const moreReviewsMessage = (reviewsCount) => {
+    const count = reviewsCount - 1
+
+    if (count > 0) {
+      return count === 1 ? '1 more review' : `${count} more reviews`
     }
   }
 
@@ -95,24 +128,23 @@ const Reviews = () => {
           </Stack>
         </div>
         <div className="rev-mainsection">
-          {filteredReviews.map((item, id) => {
-            console.log(item?.platm[0]?.url);
+          {uniqueReviews.map((item, id) => {
             return (
               <div
                 className="rev-content"
-                onClick={() => handleClickReview(item)}
+                onClick={() => handleClickReview(item.review)}
                 key={id}
               >
                 <div className="rev-icon-star">
                   <img
-                    src={`https://logo.clearbit.com/${item?.Logo}`}
+                    src={`https://logo.clearbit.com/${item.review.Logo}`}
                     alt=""
                     style={{ width: "65px", height: "65px" }}
                   />
                   <Rating
                     name="read-only"
                     size="large"
-                    value={item.Rating}
+                    value={item.review.Rating}
                     readOnly
                     style={{
                       color: "green",
@@ -122,9 +154,9 @@ const Reviews = () => {
                   />
                 </div>
                 <div className="rev-cust-cont1">
-                  <span>{item.username}</span>
+                  <span>{item.review.username}</span>
                   <span>reviewed</span>
-                  <span>{item.platformName}</span>
+                  <span>{item.review.platformName}</span>
                 </div>
                 <div
                   className="rev-content1"
@@ -136,12 +168,9 @@ const Reviews = () => {
                     maxHeight: "100%",
                   }}
                 >
-                  <Tooltip title={item.courseName}>
-                    <p>Title: <strong>{item.courseName || 'N/A'}</strong></p>
+                  <Tooltip title={item.review.courseName}>
+                    <p>Title: <strong>{item.review.courseName || 'N/A'}</strong></p>
                   </Tooltip>
-                  <div className="rev-time">
-                    {calculateTimeDifference(item.TimeofUpload)}
-                  </div>
                 </div>
                 <div
                   className="rev-content1"
@@ -153,13 +182,14 @@ const Reviews = () => {
                     maxHeight: "100%",
                   }}
                 >
-                  <Tooltip title={item.courseDescription}>
-                    <p>Description: <strong>{item.courseDescription}</strong></p>
+                  <Tooltip title={item.review.courseDescription}>
+                    <p sx={{ mb: 2 }}>Description: <strong>{item.review.courseDescription}</strong></p>
                   </Tooltip>
-                  <div className="rev-time">
-                    {calculateTimeDifference(item.TimeofUpload)}
-                  </div>
                 </div>
+                <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <Typography className="rev-content1">{moreReviewsMessage(item.count)}</Typography>
+                  <Typography className="rev-content1">{calculateTimeDifference(item.review.TimeofUpload)}</Typography>
+                </Stack>
               </div>
             );
           })}
@@ -171,80 +201,83 @@ const Reviews = () => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
           }}
         >
           <Box sx={{
             backgroundColor: 'white',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: '32px',
-            padding: '32px'
+            borderRadius: '5px',
+            padding: '32px',
+            width: '400px',
+            maxHeight: '400px',
+            overflow: 'scroll'
           }}>
-            <div
-              className="rev-content"
-              style={{ maxWidth: '98vw', width: 'fit-content' }}
-            >
-              <div className="rev-icon-star">
-                <img
-                  src={`https://logo.clearbit.com/${selectedReview?.Logo}`}
-                  alt=""
-                  style={{ width: "65px", height: "65px" }}
-                />
-                <Rating
-                  name="read-only"
-                  size="large"
-                  value={selectedReview?.Rating}
-                  readOnly
-                  style={{
-                    color: "green",
-                    position: "relative",
-                    bottom: "0.7rem",
-                  }}
-                />
-              </div>
-              <div className="rev-cust-cont1">
-                <span>{selectedReview?.username}</span>
-                <span>reviewed</span>
-                <span>{selectedReview?.platformName}</span>
-              </div>
-              <div
-                className="rev-content1"
-                style={{
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                }}
-              >
-                <Tooltip title={selectedReview?.courseName}>
-                  <p>Title: <strong>{selectedReview?.courseName || 'N/A'}</strong></p>
-                </Tooltip>
-                <div className="rev-time">
-                  {calculateTimeDifference(selectedReview?.TimeofUpload)}
+            {selectedReviews?.map((selectedReview) => {
+              return (
+                <div
+                  className="rev-content"
+                  style={{ margin: 'auto', marginTop: '10px' }}
+                >
+                  <div className="rev-icon-star">
+                    <img
+                      src={`https://logo.clearbit.com/${selectedReview?.Logo}`}
+                      alt=""
+                      style={{ width: "65px", height: "65px" }}
+                    />
+                    <Rating
+                      name="read-only"
+                      size="large"
+                      value={selectedReview?.Rating}
+                      readOnly
+                      style={{
+                        color: "green",
+                        position: "relative",
+                        bottom: "0.7rem",
+                      }}
+                    />
+                  </div>
+                  <div className="rev-cust-cont1">
+                    <span>{selectedReview?.username}</span>
+                    <span>reviewed</span>
+                    <span>{selectedReview?.platformName}</span>
+                  </div>
+                  <div
+                    className="rev-content1"
+                    style={{
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                    }}
+                  >
+                    <Tooltip title={selectedReview?.courseName}>
+                      <p>Title: <strong>{selectedReview?.courseName || 'N/A'}</strong></p>
+                    </Tooltip>
+                    <div className="rev-time">
+                      {calculateTimeDifference(selectedReview?.TimeofUpload)}
+                    </div>
+                  </div>
+                  <div
+                    className="rev-content1"
+                    style={{
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                    }}
+                  >
+                    <Tooltip title={selectedReview?.courseDescription}>
+                      <p>Description: <strong>{selectedReview?.courseDescription}</strong></p>
+                    </Tooltip>
+                    <div className="rev-time">
+                      {calculateTimeDifference(selectedReview?.TimeofUpload)}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div
-                className="rev-content1"
-                style={{
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                }}
-              >
-                <Tooltip title={selectedReview?.courseDescription}>
-                  <p>Description: <strong>{selectedReview?.courseDescription}</strong></p>
-                </Tooltip>
-                <div className="rev-time">
-                  {calculateTimeDifference(selectedReview?.TimeofUpload)}
-                </div>
-              </div>
-            </div>
+              )
+            })}
           </Box>
         </Modal>
       </div>

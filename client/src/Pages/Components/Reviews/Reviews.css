@@ -30,7 +30,7 @@
   padding: 5px 15px 15px 15px;
   border-radius: 10px;
   border: 1px solid #e2e2e2;
-  max-height: 170px;
+  max-height: fit-content;
   cursor: pointer;
 }
 
@@ -64,7 +64,6 @@
   position: relative;
   max-width: 400px;
   /* Adjust the maximum width as needed */
-  margin-bottom: 20px;
   /* Add some margin between content boxes */
 }
 

@@ -222,7 +222,7 @@ function Navbar() {
   const onSubmit = async (data) => {
     const user = JSON.parse(localStorage.getItem('User'))?.user;
 
-    const isAlreadyReviewed = Reviews.some(review => review.emailId.toLowerCase() === user.email.toLowerCase() && (review.courseName.toLowerCase() === data.courseName.toLowerCase() || review.courseURL.toLowerCase() === data.courseURL.toLowerCase()));
+    const isAlreadyReviewed = Reviews.some(review => review.emailId.toLowerCase() === user.email.toLowerCase() && review.courseName.toLowerCase() === data.courseName.toLowerCase());
     if (isAlreadyReviewed) {
       alert('You have already reviewed this course!');
       return;
